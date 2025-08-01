@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://qhv28r00fkto"]
+
+[ext_resource type="Script" uid="uid://cllptns53oj4c" path="res://Scripts/Popups/pause.gd" id="1_erpca"]
+[ext_resource type="PackedScene" uid="uid://dir2ousrcwnry" path="res://Scenes/Popups/settings.tscn" id="2_14sx3"]
+
+[node name="Pause" type="Popup"]
+size = Vector2i(800, 450)
+visible = true
+script = ExtResource("1_erpca")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 811.0
+offset_bottom = 461.0
+color = Color(0.505357, 0.560805, 0.198488, 1)
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Resume" type="Button" parent="Buttons"]
+offset_left = 72.0
+offset_top = 176.0
+offset_right = 209.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Buttons"]
+offset_left = 337.0
+offset_top = 176.0
+offset_right = 474.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Buttons"]
+offset_left = 589.0
+offset_top = 176.0
+offset_right = 726.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Settings" parent="." instance=ExtResource("2_14sx3")]
+visible = false
+
+[connection signal="pressed" from="Buttons/Resume" to="." method="resumePressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="settingsPressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="quitPressed"]
