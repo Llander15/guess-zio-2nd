@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0tluitr756oq"]
+
+[ext_resource type="Texture2D" uid="uid://dqnm337j4mmv3" path="res://Assets/BG/Welcome BG.png" id="1_dfha7"]
+[ext_resource type="Script" uid="uid://dougi4hteoti1" path="res://Scripts/welcome.gd" id="1_xr8u3"]
+
+[node name="Welcome" type="Node2D"]
+script = ExtResource("1_xr8u3")
+
+[node name="WelcomeBg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_dfha7")
+
+[node name="Press to Start" type="Label" parent="."]
+offset_left = 1301.0
+offset_top = 854.0
+offset_right = 1819.0
+offset_bottom = 964.0
+theme_override_font_sizes/font_size = 80
+text = "Press to Start"
+
+[node name="Transparent button" type="TextureButton" parent="."]
+z_index = 5
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[connection signal="pressed" from="Transparent button" to="." method="_on_transparent_button_pressed"]

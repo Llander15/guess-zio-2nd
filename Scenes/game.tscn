@@ -1,76 +1,142 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddb8pitm12cef"]
+[gd_scene load_steps=10 format=3 uid="uid://cq7kh8068wydt"]
 
-[ext_resource type="Script" uid="uid://caudtx86fa5ap" path="res://Scripts/game.gd" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://qhv28r00fkto" path="res://Scenes/Popups/pause.tscn" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
+[ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
+[ext_resource type="Texture2D" uid="uid://cl1wt4lbrhoc8" path="res://Assets/UI/hp boarder.png" id="2_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://b0r2cchernwcc" path="res://Assets/UI/hp blood.png" id="3_7lihs"]
+[ext_resource type="Texture2D" uid="uid://cju8exd055s0x" path="res://Assets/UI/exit.png" id="3_fgofq"]
+[ext_resource type="Texture2D" uid="uid://byrvswlc3fpm5" path="res://Assets/UI/exit hover.png" id="4_2irst"]
+[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="4_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="5_7lihs"]
+[ext_resource type="PackedScene" uid="uid://dpeyiqobx84gm" path="res://Scenes/Popups/game pause.tscn" id="9_bf53h"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_80nbo")
+script = ExtResource("1_2irst")
+metadata/_edit_vertical_guides_ = [100.0, 1820.0, 1448.0, 1428.0, 1056.0, 1036.0, 960.0]
+metadata/_edit_horizontal_guides_ = [100.0, 980.0, 830.0, 540.0]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, -540)
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Special" type="TextureButton" parent="Buttons"]
+offset_left = 1448.0
+offset_top = 830.0
+offset_right = 1948.0
+offset_bottom = 1030.0
+scale = Vector2(0.743906, 0.743906)
+texture_normal = ExtResource("4_b2bpf")
+texture_pressed = ExtResource("4_b2bpf")
+texture_hover = ExtResource("5_7lihs")
+
+[node name="Label" type="Label" parent="Buttons/Special"]
+layout_mode = 0
+offset_left = 143.835
+offset_top = 49.7375
+offset_right = 359.835
+offset_bottom = 137.737
+theme_override_font_sizes/font_size = 64
+text = "Special"
+
+[node name="Attack" type="TextureButton" parent="Buttons"]
+offset_left = 1056.0
+offset_top = 830.0
+offset_right = 1556.0
+offset_bottom = 1030.0
+scale = Vector2(0.743906, 0.743906)
+texture_normal = ExtResource("4_b2bpf")
+texture_pressed = ExtResource("4_b2bpf")
+texture_hover = ExtResource("5_7lihs")
+
+[node name="Label" type="Label" parent="Buttons/Attack"]
+layout_mode = 0
+offset_left = 155.934
+offset_top = 47.049
+offset_right = 353.934
+offset_bottom = 135.049
+theme_override_font_sizes/font_size = 64
+text = "Attack"
+
+[node name="Recover" type="TextureButton" parent="Buttons"]
+offset_left = 664.0
+offset_top = 831.0
+offset_right = 1164.0
+offset_bottom = 1031.0
+scale = Vector2(0.743906, 0.743906)
+texture_normal = ExtResource("4_b2bpf")
+texture_pressed = ExtResource("4_b2bpf")
+texture_hover = ExtResource("5_7lihs")
+
+[node name="Label" type="Label" parent="Buttons/Recover"]
+layout_mode = 0
+offset_left = 122.327
+offset_top = 48.3933
+offset_right = 369.327
+offset_bottom = 136.393
+theme_override_font_sizes/font_size = 64
+text = "Recover"
+
+[node name="Pause" type="TextureButton" parent="Buttons"]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 190.0
+offset_bottom = 180.0
+texture_normal = ExtResource("3_fgofq")
+texture_pressed = ExtResource("3_fgofq")
+texture_hover = ExtResource("4_2irst")
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Node" parent="."]
 
-[node name="Player Name" type="Label" parent="Player"]
-offset_left = 144.0
-offset_top = -335.0
-offset_right = 446.0
-offset_bottom = -198.0
+[node name="player hp bar" type="TextureProgressBar" parent="Player"]
+anchors_preset = -1
+anchor_left = -0.088
+anchor_top = -0.263
+anchor_right = -0.088
+anchor_bottom = -0.263
+offset_left = 268.96
+offset_top = 1023.04
+offset_right = 1918.96
+offset_bottom = 1373.04
+scale = Vector2(0.343188, 0.259203)
+value = 10.0
+texture_under = ExtResource("1_kldst")
+texture_over = ExtResource("2_b2bpf")
+texture_progress = ExtResource("3_7lihs")
+
+[node name="player name" type="Label" parent="Player"]
+offset_left = 207.0
+offset_top = 564.0
+offset_right = 353.0
+offset_bottom = 701.0
 theme_override_font_sizes/font_size = 100
-text = "Player"
-metadata/_edit_use_anchors_ = true
+text = "Zio"
 
-[node name="Attack btn" type="Button" parent="Player"]
-offset_left = 475.0
-offset_top = -401.0
-offset_right = 638.0
-offset_bottom = -324.0
-theme_override_font_sizes/font_size = 50
-text = "Attack"
-metadata/_edit_use_anchors_ = true
+[node name="Enemy" type="Node" parent="."]
 
-[node name="Recovery btn" type="Button" parent="Player"]
-offset_left = 224.0
-offset_top = -462.0
-offset_right = 425.0
-offset_bottom = -385.0
-theme_override_font_sizes/font_size = 50
-text = "Recover"
-metadata/_edit_use_anchors_ = true
+[node name="enemy hp bar" type="TextureProgressBar" parent="Enemy"]
+anchors_preset = -1
+anchor_left = -0.088
+anchor_top = -0.263
+anchor_right = -0.088
+anchor_bottom = -0.263
+offset_left = 1422.96
+offset_top = 384.04
+offset_right = 3072.96
+offset_bottom = 734.04
+scale = Vector2(0.343188, 0.259203)
+value = 90.0
+texture_under = ExtResource("1_kldst")
+texture_over = ExtResource("2_b2bpf")
+texture_progress = ExtResource("3_7lihs")
 
-[node name="Special Skill btn" type="Button" parent="Player"]
-offset_left = 518.0
-offset_top = -281.0
-offset_right = 863.0
-offset_bottom = -204.0
-theme_override_font_sizes/font_size = 50
-text = "Special Attack"
-metadata/_edit_use_anchors_ = true
-
-[node name="Enemy2" type="Node" parent="."]
-
-[node name="Enemy Name" type="Label" parent="Enemy2"]
-offset_left = 1496.0
-offset_top = -866.0
-offset_right = 1822.0
-offset_bottom = -729.0
+[node name="enemy name" type="Label" parent="Enemy"]
+offset_left = 1366.0
+offset_top = 218.0
+offset_right = 1692.0
+offset_bottom = 355.0
 theme_override_font_sizes/font_size = 100
-text = "Enemy"
-metadata/_edit_use_anchors_ = true
+text = "Guess"
 
-[node name="Pause btn" type="Button" parent="."]
-offset_left = 1737.0
-offset_top = -1050.0
-offset_right = 1890.0
-offset_bottom = -973.0
-theme_override_font_sizes/font_size = 50
-text = "Pause"
-metadata/_edit_use_anchors_ = true
+[node name="GamePause" parent="." instance=ExtResource("9_bf53h")]
+z_index = 5
 
-[node name="Pause" parent="." instance=ExtResource("2_qxrlw")]
-
-[connection signal="pressed" from="Player/Attack btn" to="." method="atkBtnPressed"]
-[connection signal="pressed" from="Player/Recovery btn" to="." method="recBtnPressed"]
-[connection signal="pressed" from="Player/Special Skill btn" to="." method="spBtnPressed"]
-[connection signal="pressed" from="Pause btn" to="." method="quitPressed"]
-[connection signal="pressed" from="Pause btn" to="." method="pausePressed"]
+[connection signal="pressed" from="Buttons/Pause" to="." method="_on_pause_pressed"]
