@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://1ivqsxloblfs"]
+[gd_scene load_steps=3 format=3 uid="uid://1ivqsxloblfs"]
+
+[ext_resource type="Script" uid="uid://cpdxieqhki30e" path="res://Scripts/intro.gd" id="1_3edat"]
+[ext_resource type="Texture2D" uid="uid://b73h68dkhcrl0" path="res://Assets/BG/Main BG.jpg" id="2_rrrc0"]
 
 [node name="Intro" type="Node2D"]
+script = ExtResource("1_3edat")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="MainBg" type="Sprite2D" parent="."]
+position = Vector2(958, 490)
+scale = Vector2(2.60446, 2.60446)
+texture = ExtResource("2_rrrc0")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
