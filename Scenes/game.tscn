@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq7kh8068wydt"]
+[gd_scene load_steps=11 format=3 uid="uid://cq7kh8068wydt"]
 
 [ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
 [ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="4_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="5_7lihs"]
 [ext_resource type="PackedScene" uid="uid://dpeyiqobx84gm" path="res://Scenes/Popups/game pause.tscn" id="9_bf53h"]
+[ext_resource type="PackedScene" uid="uid://cx2rx5c2tgrrf" path="res://Scenes/Popups/skill option.tscn" id="11_dahhg"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
 metadata/_edit_vertical_guides_ = [100.0, 1820.0, 1448.0, 1428.0, 1056.0, 1036.0, 960.0]
-metadata/_edit_horizontal_guides_ = [100.0, 980.0, 830.0, 540.0]
+metadata/_edit_horizontal_guides_ = [980.0, 830.0, 540.0, 128.0, 50.0]
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -75,10 +76,10 @@ theme_override_font_sizes/font_size = 64
 text = "Recover"
 
 [node name="Pause" type="TextureButton" parent="Buttons"]
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 190.0
-offset_bottom = 180.0
+offset_left = 1730.0
+offset_top = 50.0
+offset_right = 1820.0
+offset_bottom = 130.0
 texture_normal = ExtResource("3_fgofq")
 texture_pressed = ExtResource("3_fgofq")
 texture_hover = ExtResource("4_2irst")
@@ -103,10 +104,10 @@ texture_over = ExtResource("2_b2bpf")
 texture_progress = ExtResource("3_7lihs")
 
 [node name="player name" type="Label" parent="Player"]
-offset_left = 207.0
-offset_top = 564.0
-offset_right = 353.0
-offset_bottom = 701.0
+offset_left = 101.0
+offset_top = 578.0
+offset_right = 247.0
+offset_bottom = 715.0
 theme_override_font_sizes/font_size = 100
 text = "Zio"
 
@@ -118,10 +119,10 @@ anchor_left = -0.088
 anchor_top = -0.263
 anchor_right = -0.088
 anchor_bottom = -0.263
-offset_left = 1422.96
-offset_top = 384.04
-offset_right = 3072.96
-offset_bottom = 734.04
+offset_left = 1421.96
+offset_top = 446.04
+offset_right = 3071.96
+offset_bottom = 796.04
 scale = Vector2(0.343188, 0.259203)
 value = 100.0
 texture_under = ExtResource("1_kldst")
@@ -129,17 +130,25 @@ texture_over = ExtResource("2_b2bpf")
 texture_progress = ExtResource("3_7lihs")
 
 [node name="enemy name" type="Label" parent="Enemy"]
-offset_left = 1366.0
-offset_top = 218.0
-offset_right = 1692.0
-offset_bottom = 355.0
+offset_left = 1493.0
+offset_top = 268.0
+offset_right = 1819.0
+offset_bottom = 405.0
 theme_override_font_sizes/font_size = 100
 text = "Guess"
 
-[node name="GamePause" parent="." instance=ExtResource("9_bf53h")]
+[node name="Popups" type="Node" parent="."]
+
+[node name="GamePause" parent="Popups" instance=ExtResource("9_bf53h")]
 visible = false
 z_index = 5
 
+[node name="SkillOption" parent="Popups" instance=ExtResource("11_dahhg")]
+visible = false
+offset_top = 315.0
+offset_bottom = 765.0
+
+[connection signal="pressed" from="Buttons/Special" to="." method="_on_special_pressed"]
 [connection signal="pressed" from="Buttons/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Buttons/Recover" to="." method="_on_recover_pressed"]
 [connection signal="pressed" from="Buttons/Pause" to="." method="_on_pause_pressed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpeyiqobx84gm"]
+[gd_scene load_steps=4 format=3 uid="uid://dpeyiqobx84gm"]
 
-[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="1_po1v7"]
 [ext_resource type="Script" uid="uid://cgsykmsalajhc" path="res://Scripts/Popups/game_pause.gd" id="1_vw5yt"]
-[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="2_vw5yt"]
+[ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="2_po1v7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po1v7"]
 bg_color = Color(0.443137, 0.443137, 0.443137, 0.690196)
@@ -24,8 +23,8 @@ offset_right = 1260.0
 offset_bottom = 920.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_po1v7")
 script = ExtResource("1_vw5yt")
-metadata/_edit_vertical_guides_ = [960.0]
-metadata/_edit_horizontal_guides_ = [540.0]
+metadata/_edit_vertical_guides_ = [960.0, 710.0]
+metadata/_edit_horizontal_guides_ = [540.0, 211.0, 436.0, 661.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -36,64 +35,52 @@ offset_right = 1422.0
 offset_bottom = 1014.0
 color = Color(1, 1, 1, 0)
 
-[node name="Resume" type="TextureButton" parent="."]
-z_index = 5
-layout_mode = 2
+[node name="Resume" parent="." instance=ExtResource("2_po1v7")]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 550.0
 offset_bottom = 250.0
-texture_normal = ExtResource("1_po1v7")
-texture_pressed = ExtResource("1_po1v7")
-texture_hover = ExtResource("2_vw5yt")
 
 [node name="Label" type="Label" parent="Resume"]
 layout_mode = 0
-offset_left = 117.449
-offset_top = 47.3302
-offset_right = 365.449
-offset_bottom = 135.33
-theme_override_font_sizes/font_size = 64
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 410.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 80
 text = "Resume"
 
-[node name="Settings" type="TextureButton" parent="."]
-z_index = 5
-layout_mode = 2
+[node name="Settings" parent="." instance=ExtResource("2_po1v7")]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 275.0
 offset_right = 550.0
 offset_bottom = 475.0
-texture_normal = ExtResource("1_po1v7")
-texture_pressed = ExtResource("1_po1v7")
-texture_hover = ExtResource("2_vw5yt")
 
 [node name="Label" type="Label" parent="Settings"]
 layout_mode = 0
-offset_left = 120.955
-offset_top = 47.3302
-offset_right = 368.955
-offset_bottom = 135.33
-theme_override_font_sizes/font_size = 64
+offset_left = 96.0
+offset_top = 40.0
+offset_right = 406.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 80
 text = "Settings"
 
-[node name="Quit" type="TextureButton" parent="."]
-z_index = 5
-layout_mode = 2
+[node name="Quit" parent="." instance=ExtResource("2_po1v7")]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 500.0
 offset_right = 550.0
 offset_bottom = 700.0
-texture_normal = ExtResource("1_po1v7")
-texture_pressed = ExtResource("1_po1v7")
-texture_hover = ExtResource("2_vw5yt")
 
 [node name="Label" type="Label" parent="Quit"]
 layout_mode = 0
-offset_left = 184.062
-offset_top = 49.0831
-offset_right = 318.062
-offset_bottom = 137.083
-theme_override_font_sizes/font_size = 64
+offset_left = 173.0
+offset_top = 37.0
+offset_right = 341.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 80
 text = "Quit"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

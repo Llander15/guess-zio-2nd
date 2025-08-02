@@ -1,22 +1,20 @@
 extends Node2D
 
-#Base Stats
+#Base Stats ----------------------------------------------------------------------------------------
 var enemyHp = 100
 var playerHp = 100
 
 func _ready() -> void:
-	#
-	
 	$"Player/player hp bar".value = playerHp
+	$"Enemy/enemy hp bar".value = enemyHp
 	
-	
-	
-	$GamePause.hide() #initially hides the popup
+	#initially hides the popup
+	$Popups/GamePause.hide() 
 
 func _on_pause_pressed() -> void:
-	$GamePause.visible = true
+	$Popups/GamePause.visible = true
 
-#Gmaeplay Logic
+#Gmaeplay Logic ------------------------------------------------------------------------------------
 func playerHpCap() -> void:
 	if (playerHp>100):
 		playerHp=100
@@ -25,15 +23,10 @@ func playerHpCap() -> void:
 		#GAME OVER
 
 func _on_attack_pressed() -> void:
-	enemyHp = enemyHp - 5
-	playerHp = playerHp - 10#test for recover
-	$"Enemy/enemy hp bar".value = enemyHp
-	$"Player/player hp bar".value = playerHp
-	
-	#add a change scene later when enemy hp is below 1
-
+	$Popups/SkillOption.visible = true
 
 func _on_recover_pressed() -> void:
-	playerHp = playerHp + 30
-	playerHpCap()
-	$"Player/player hp bar".value = playerHp
+	$Popups/SkillOption.visible = true
+
+func _on_special_pressed() -> void:
+	$Popups/SkillOption.visible = true

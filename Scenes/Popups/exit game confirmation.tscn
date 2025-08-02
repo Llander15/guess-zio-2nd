@@ -1,64 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://mb0p6smf6b7v"]
+[gd_scene load_steps=3 format=3 uid="uid://mb0p6smf6b7v"]
 
 [ext_resource type="Script" uid="uid://bx5cfa3rm3bq4" path="res://Scripts/Popups/exit_game_confirmation.gd" id="1_jmmbb"]
-[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="1_n8vu0"]
-[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="2_jmmbb"]
+[ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="2_n8vu0"]
 
 [node name="ExitGameConfirmation" type="Popup"]
-size = Vector2i(1052, 415)
+size = Vector2i(1119, 427)
 visible = true
 script = ExtResource("1_jmmbb")
 
 [node name="VisibleOnScreenEnabler2D" type="Label" parent="."]
-offset_left = 251.0
-offset_top = 42.0
-offset_right = 764.0
-offset_bottom = 152.0
+offset_left = 302.0
+offset_top = 60.0
+offset_right = 815.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 80
 text = "Confirm Exit?"
 
 [node name="BG" type="ColorRect" parent="."]
 z_index = -5
-offset_right = 1891.0
-offset_bottom = 1130.0
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 1021.0
+offset_bottom = 410.0
+scale = Vector2(1.13469, 1.1906)
 color = Color(0.556953, 0.556953, 0.556953, 1)
 
-[node name="Cancel" type="TextureButton" parent="."]
-offset_left = 173.0
+[node name="Cancel" parent="." instance=ExtResource("2_n8vu0")]
+offset_left = 176.0
 offset_top = 215.0
-offset_right = 673.0
+offset_right = 676.0
 offset_bottom = 415.0
-scale = Vector2(0.611278, 0.611278)
-texture_normal = ExtResource("1_n8vu0")
-texture_pressed = ExtResource("1_n8vu0")
-texture_hover = ExtResource("2_jmmbb")
+scale = Vector2(0.627946, 0.627946)
 
 [node name="Label" type="Label" parent="Cancel"]
 layout_mode = 0
-offset_left = 143.961
-offset_top = 47.4416
-offset_right = 348.961
-offset_bottom = 135.442
-theme_override_font_sizes/font_size = 64
+offset_left = 128.0
+offset_top = 39.0
+offset_right = 384.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 80
 text = "Cancel"
 
-[node name="Confirm" type="TextureButton" parent="."]
-offset_left = 552.0
-offset_top = 215.0
-offset_right = 1052.0
-offset_bottom = 415.0
-scale = Vector2(0.611278, 0.611278)
-texture_normal = ExtResource("1_n8vu0")
-texture_pressed = ExtResource("1_n8vu0")
-texture_hover = ExtResource("2_jmmbb")
+[node name="Confirm" parent="." instance=ExtResource("2_n8vu0")]
+offset_left = 611.0
+offset_top = 213.0
+offset_right = 1111.0
+offset_bottom = 413.0
+scale = Vector2(0.627946, 0.627946)
 
 [node name="Label" type="Label" parent="Confirm"]
 layout_mode = 0
-offset_left = 129.237
-offset_top = 49.0775
-offset_right = 379.237
-offset_bottom = 137.077
-theme_override_font_sizes/font_size = 64
+offset_left = 98.7346
+offset_top = 39.8124
+offset_right = 411.735
+offset_bottom = 149.812
+theme_override_font_sizes/font_size = 80
 text = "Confirm"
 
 [connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
