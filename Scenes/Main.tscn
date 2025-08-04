@@ -28,6 +28,7 @@ offset_left = 150.0
 offset_top = 330.0
 offset_right = 650.0
 offset_bottom = 530.0
+scale = Vector2(1.00162, 1.00162)
 
 [node name="Label" type="Label" parent="Buttons/Start"]
 layout_mode = 0
@@ -43,6 +44,7 @@ offset_left = 150.0
 offset_top = 555.0
 offset_right = 650.0
 offset_bottom = 755.0
+scale = Vector2(0.996274, 0.996274)
 
 [node name="Label" type="Label" parent="Buttons/Lesson"]
 layout_mode = 0
@@ -58,6 +60,7 @@ offset_left = 150.0
 offset_top = 780.0
 offset_right = 650.0
 offset_bottom = 980.0
+scale = Vector2(0.997727, 0.997727)
 
 [node name="Label" type="Label" parent="Buttons/Settings"]
 layout_mode = 0

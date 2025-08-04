@@ -1,90 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://bitm7i4u7ojcf"]
+[gd_scene load_steps=3 format=3 uid="uid://dl3vw3xrl3kjn"]
 
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="1_2r8pa"]
-[ext_resource type="Script" uid="uid://uw1yffxbwk7x" path="res://Scripts/Popups/skill_difficulty.gd" id="1_4gtmb"]
-[ext_resource type="PackedScene" uid="uid://bgqqre1j37jpd" path="res://Scenes/Popups/question screen.tscn" id="3_ywhna"]
 
-[node name="SkillDifficulty" type="Panel"]
-offset_left = 344.0
-offset_top = 340.0
-offset_right = 1576.0
-offset_bottom = 740.0
-script = ExtResource("1_4gtmb")
-metadata/_edit_vertical_guides_ = [960.0]
-metadata/_edit_horizontal_guides_ = [540.0]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r8pa"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
-[node name="Blank Space" type="TextureButton" parent="."]
+[node name="SkillDifficulty" type="PopupPanel"]
+size = Vector2i(1110, 200)
+visible = true
+wrap_controls = false
+unfocusable = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_2r8pa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1700.0
+offset_bottom = 300.0
+scale = Vector2(0.651337, 0.651337)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Easy" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_2r8pa")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Easy"]
 layout_mode = 0
-offset_left = -571.0
-offset_top = -433.0
-offset_right = 1897.0
-offset_bottom = 854.0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = -65.0
-offset_right = 1232.0
-offset_bottom = 463.0
-color = Color(0.548963, 0.548963, 0.548963, 1)
-
-[node name="Easy" parent="." instance=ExtResource("1_2r8pa")]
-layout_mode = 0
-offset_left = 157.0
-offset_top = 145.0
-offset_right = 657.0
-offset_bottom = 345.0
-scale = Vector2(0.544979, 0.544979)
-
-[node name="Label" type="Label" parent="Easy"]
-layout_mode = 0
-offset_left = 166.979
-offset_top = 34.8637
-offset_right = 339.979
-offset_bottom = 144.864
-theme_override_font_sizes/font_size = 80
+offset_left = 166.478
+offset_top = 46.7241
+offset_right = 317.478
+offset_bottom = 142.724
+theme_override_font_sizes/font_size = 70
 text = "Easy"
 
-[node name="Normal" parent="." instance=ExtResource("1_2r8pa")]
-layout_mode = 0
-offset_left = 466.0
-offset_top = 146.0
-offset_right = 966.0
-offset_bottom = 346.0
-scale = Vector2(0.544979, 0.544979)
+[node name="Normal" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_2r8pa")]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Normal"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Normal"]
 layout_mode = 0
-offset_left = 113.766
-offset_top = 34.8637
-offset_right = 404.766
-offset_bottom = 144.864
-theme_override_font_sizes/font_size = 80
+offset_left = 121.592
+offset_top = 46.7241
+offset_right = 376.592
+offset_bottom = 142.724
+theme_override_font_sizes/font_size = 70
 text = "Normal"
 
-[node name="Hard" parent="." instance=ExtResource("1_2r8pa")]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 147.0
-offset_right = 1284.0
-offset_bottom = 347.0
-scale = Vector2(0.544979, 0.544979)
+[node name="Hard" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_2r8pa")]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Hard"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Hard"]
 layout_mode = 0
-offset_left = 157.804
-offset_top = 38.5336
-offset_right = 348.804
-offset_bottom = 148.534
-theme_override_font_sizes/font_size = 80
+offset_left = 164.219
+offset_top = 46.7241
+offset_right = 331.219
+offset_bottom = 142.724
+theme_override_font_sizes/font_size = 70
 text = "Hard"
-
-[node name="Question Screen" parent="." instance=ExtResource("3_ywhna")]
-visible = false
-layout_mode = 0
-offset_left = -116.0
-offset_top = -251.0
-offset_right = 1347.0
-offset_bottom = 652.0
-
-[connection signal="pressed" from="Blank Space" to="." method="_on_blank_space_pressed"]
-[connection signal="pressed" from="Easy" to="." method="_on_easy_pressed"]
