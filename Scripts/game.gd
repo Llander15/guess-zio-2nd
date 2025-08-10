@@ -37,16 +37,18 @@ func _ready() -> void:
 	#difficlty check
 	$StageDiff.text = Global.getStageDiff()
 	
-	#Updating player max hp
-	$"Player/player hp bar".max_value = Global.playerHp
-	$"Player/player hp bar".value = Global.playerHp
-	
-	#Updating enemy max hp
-	$"Enemy/enemy hp bar".max_value = Global.enemyHp
-	$"Enemy/enemy hp bar".value = Global.enemyHp
-	
+	updateDisplay()
 	#
 	Logic.duplicateQuestions()
+
+func updateDisplay() -> void: 
+	$"Player/player hp bar".max_value = Global.maxPlayerHp
+	$"Player/player hp bar".value = Global.playerHp
+	$"Enemy/enemy hp bar".max_value = Global.maxEnemyHp
+	$"Enemy/enemy hp bar".value = Global.enemyHp
+	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
+	$Popups/QuestionScreen.get_node("No of correct Answers").text = "Correct: " + str(noCorrectAnswers) + "/5"
+
 #INPUTS ------------------------------------------------------------------------
 #pause button
 func _on_pause_pressed() -> void:
@@ -123,49 +125,6 @@ func _on_hard_pressed() -> void:
 	$Popups/SkillDifficulty.hide()
 	$Popups/QuestionScreen.visible = true
 
-
-#Questionare
-var progress = 0 #0-5
-var noCorrectAnswers = 0
-var Qn
-var Question = ''
-var Correct = ''
-var Wrong = []
-
-var correctPlacement
-var playerAnswer
-func questionLoop() -> void:
-	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
-	Logic.setQuestions()
-	Qn = Logic.generatedQuestion[progress]
-	Question = Qn[0]
-	Correct = Qn[1]
-	Wrong = Qn[2]
-	
-	correctPlacement = randi() % 5  #random number generator 0-4
-	Wrong.shuffle()                     #random order for wrong answers
-	#loop for asigning the answers according to the random number generated
-	var Wn = -1
-	for x in range(4):
-		if (x == correctPlacement):
-			answers[x].text = Correct
-		else:
-			answers[x].text = Wrong[Wn]
-			Wn +=1
-	
-	
-	$Popups/QuestionScreen.get_node("Question Generated").text = Question
-	
-	progress += 1
-	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
-
-func checkAnswer() -> void:
-	if (correctPlacement == playerAnswer):
-		noCorrectAnswers += 1
-		$Popups/QuestionScreen.get_node("No of correct Answers").text = "Correct: " + str(noCorrectAnswers) + "/5"
-	else:
-		pass
-
 #Questionare inputs ------------------------------------------------------------
 func _on_a_button_pressed() -> void:
 	playerAnswer = 0
@@ -182,3 +141,123 @@ func _on_c_button_pressed() -> void:
 func _on_d_button_pressed() -> void:
 	playerAnswer = 3
 	checkAnswer()
+
+
+#Game logic/functions ------------------------------------------------------------------------------
+
+#Questionare variables
+var progress = 0 #0-5, used to show what number(in progress bar) and get as array index 
+var noCorrectAnswers = 0 #increase as player get the coreect answer, will be use to calculate dmg rec and sp 
+var Qn #Queastion number, array in which content structure is as the same as the variables bellow: 
+#[string, string, array[string, string, string]]
+var Question = ''
+var Correct = ''
+var Wrong = []
+
+var correctPlacement #used for answer placement to be able to randomly place it in the questionare
+var playerAnswer #user's picked answer, will correct if it is the same sa the correctPlacement
+
+func questionLoop() -> void: #not really a lopp but a func that is called a lot 
+	if (progress == 0): #generate a question on first call/ progress = 0
+		Logic.setQuestions() #
+	elif (progress == 5): #ends 'loop' if progress = 5
+		progress = 0
+		if (Logic.skill == 'recover'):
+			recCalculation()
+		elif (Logic.skill == 'attack'):
+			dmgCalculation()
+		elif (Logic.skill == 'special'):
+			pass
+		$Popups/QuestionScreen.hide()
+		return # ignores the rest of the function if progress is equal to 5
+	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress #Progress Bar Display
+	
+	Qn = Logic.generatedQuestion[progress] #setting Question number based on progress
+	Question = Qn[0]
+	Correct = Qn[1]
+	Wrong = Qn[2]
+	
+	correctPlacement = randi() % 4  #random number generator 0-4
+	Wrong.shuffle()                 #random order for wrong answers
+	#loop for asigning the answers according to the random number generated
+	var Wn = 0 #wrong answer
+	for x in range(4):
+		if (x == correctPlacement):
+			answers[x].text = Correct
+		else:
+			answers[x].text = Wrong[Wn]
+			Wn +=1
+	
+	
+	$Popups/QuestionScreen.get_node("Question Generated").text = Question
+	progress += 1
+	updateDisplay()
+	#$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
+
+func checkAnswer() -> void:
+	if (correctPlacement == playerAnswer):
+		noCorrectAnswers += 1
+		$Popups/QuestionScreen.get_node("No of correct Answers").text = "Correct: " + str(noCorrectAnswers) + "/5"
+	else:
+		pass
+	questionLoop()
+
+func dmgCalculation() -> void: #for Attack
+	var damageToSelf = 0
+	var damageToEnemy = 0
+	
+	if (noCorrectAnswers == 0): #0 dmg to slef 1.5
+		damageToSelf = Global.enemyDmg * 1.5
+	elif (noCorrectAnswers == 1): #1 dmg to self 1
+		damageToSelf = Global.enemyDmg
+	elif (noCorrectAnswers == 2): #2 nothing
+		pass
+	elif (noCorrectAnswers == 3): #3 dmg 1
+		damageToEnemy = Global.playerDmg
+	elif (noCorrectAnswers == 4): #4 dmg 1.5
+		damageToEnemy = Global.playerDmg * 1.5
+	elif (noCorrectAnswers == 5): #5 dmg 2
+		damageToEnemy = Global.playerDmg * 2
+	
+	var dmgMultiplyer
+	if (Logic.subDiff == 'easy'):
+		dmgMultiplyer = 1
+	elif (Logic.subDiff == 'normal'):
+		dmgMultiplyer = 1.5
+	elif (Logic.subDiff == 'hard'):
+		dmgMultiplyer = 2
+	Global.enemyHp -= damageToEnemy * dmgMultiplyer
+	Global.playerHp -= damageToSelf * dmgMultiplyer
+	noCorrectAnswers = 0
+	updateDisplay()
+
+func recCalculation() -> void:
+	var healToSelf = 0
+	
+	if (noCorrectAnswers == 0): #5% heal
+		healToSelf = Global.maxPlayerHp * 0.05
+	elif (noCorrectAnswers == 1): #10% heal
+		healToSelf = Global.maxPlayerHp * 0.10
+	elif (noCorrectAnswers == 2): #15% heal
+		healToSelf = Global.maxPlayerHp * 0.15
+	elif (noCorrectAnswers == 3): #20% heal
+		healToSelf = Global.maxPlayerHp * 0.20
+	elif (noCorrectAnswers == 4): #25% heal
+		healToSelf = Global.maxPlayerHp * 0.25
+	elif (noCorrectAnswers == 5): #30 heal
+		healToSelf = Global.maxPlayerHp * 0.30
+	
+	var healMultiplyer
+	if (Logic.subDiff == 'easy'):
+		healMultiplyer = 1
+	elif (Logic.subDiff == 'normal'):
+		healMultiplyer = 2
+	elif (Logic.subDiff == 'hard'):
+		healMultiplyer = 3
+	
+	Global.playerHp += healToSelf * healMultiplyer
+	noCorrectAnswers = 0
+	updateDisplay()
+
+func spCalculation() -> void:
+	pass
