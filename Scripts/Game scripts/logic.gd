@@ -23,16 +23,16 @@ var javascriptHard = []
 #Duplicate Questions
 func duplicateQuestions() -> void:
 	htmlEasy = Questions.html_easy
-	htmlNormal = Questions.html_easy
-	htmlHard = Questions.html_easy
+	htmlNormal = Questions.html_medium
+	htmlHard = Questions.html_hard
 	
-	cssEasy = Questions.html_easy
-	cssNormal = Questions.html_easy
-	cssHard = Questions.html_easy
+	cssEasy = Questions.css_easy
+	cssNormal = Questions.css_medium
+	cssHard = Questions.css_hard
 	
-	javascriptEasy = Questions.html_easy
-	javascriptNormal = Questions.html_easy
-	javascriptHard = Questions.html_easy
+	javascriptEasy = Questions.js_easy
+	javascriptNormal = Questions.js_medium
+	javascriptHard = Questions.js_hard
 
 #used for display/interaction
 var generatedQuestion
