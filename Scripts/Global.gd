@@ -17,6 +17,7 @@ func getStageDiff() -> String:
 var maxPlayerHp = 100
 var playerHp = 100
 var playerDmg = 10
+var playerCharge = 0
 
 func resetSelfStat() -> void: # !!! change func content if stat var is change
 	maxPlayerHp = 100

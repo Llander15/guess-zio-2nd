@@ -4,6 +4,7 @@ var answers = []
 var answerButtons = []
 
 func _ready() -> void:
+	randomize()  # Without this, randomness is predictable
 	#initially hides the popups
 	#gets buggy when only using toggle visibility
 	$Popups/GamePause.hide() 
@@ -48,6 +49,7 @@ func updateDisplay() -> void:
 	$"Enemy/enemy hp bar".value = Global.enemyHp
 	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
 	$Popups/QuestionScreen.get_node("No of correct Answers").text = "Correct: " + str(noCorrectAnswers) + "/5"
+	$"SP Charge".text= "Charge: " + str(Global.playerCharge) + "/10"
 
 #INPUTS ------------------------------------------------------------------------
 #pause button
@@ -70,8 +72,22 @@ func _on_attack_pressed() -> void:
 
 func _on_special_pressed() -> void:
 	Logic.setSkill('special')
+	
+	var randomSub = randi() % 3
+	if (randomSub==0):
+		Logic.setSubject('html')
+	elif (randomSub==1):
+		Logic.setSubject('css')
+	else:
+		Logic.setSubject('javascript')
+		
+	Logic.setSubDiff('hard') #automatically selects hard difficulty
+	
 	$"Skill Checker".text = Logic.getSkill()
-	$Popups/SkillSubject.popup_centered()
+	$"Skill Sub Checker".text = Logic.getSubject()
+	$"Sub Diff Checker".text = Logic.getSubDiff()
+	
+	questionLoop()
 	#sets action to sp
 	#initially disabled/hidden and only is usable when a condition is right
 
@@ -177,7 +193,7 @@ func questionLoop() -> void: #not really a lopp but a func that is called a lot
 	Correct = Qn[1]
 	Wrong = Qn[2]
 	
-	correctPlacement = randi() % 4  #random number generator 0-4
+	correctPlacement = randi() % 4  #random number generator 0-3
 	Wrong.shuffle()                 #random order for wrong answers
 	#loop for asigning the answers according to the random number generated
 	var Wn = 0 #wrong answer
@@ -203,21 +219,20 @@ func checkAnswer() -> void:
 	questionLoop()
 
 func dmgCalculation() -> void: #for Attack
-	var damageToSelf = 0
 	var damageToEnemy = 0
 	
-	if (noCorrectAnswers == 0): #0 dmg to slef 1.5
-		damageToSelf = Global.enemyDmg * 1.5
-	elif (noCorrectAnswers == 1): #1 dmg to self 1
-		damageToSelf = Global.enemyDmg
-	elif (noCorrectAnswers == 2): #2 nothing
-		pass
-	elif (noCorrectAnswers == 3): #3 dmg 1
-		damageToEnemy = Global.playerDmg
-	elif (noCorrectAnswers == 4): #4 dmg 1.5
+	if (noCorrectAnswers == 0): #0 
+		damageToEnemy = Global.enemyDmg * 0
+	elif (noCorrectAnswers == 1): #1 
+		damageToEnemy = Global.enemyDmg * 0.5
+	elif (noCorrectAnswers == 2): #2 
+		damageToEnemy = Global.playerDmg * 1
+	elif (noCorrectAnswers == 3): #3 
 		damageToEnemy = Global.playerDmg * 1.5
-	elif (noCorrectAnswers == 5): #5 dmg 2
+	elif (noCorrectAnswers == 4): #4 
 		damageToEnemy = Global.playerDmg * 2
+	elif (noCorrectAnswers == 5): #5 
+		damageToEnemy = Global.playerDmg * 3
 	
 	var dmgMultiplyer
 	if (Logic.subDiff == 'easy'):
@@ -226,10 +241,18 @@ func dmgCalculation() -> void: #for Attack
 		dmgMultiplyer = 1.5
 	elif (Logic.subDiff == 'hard'):
 		dmgMultiplyer = 2
+	
 	Global.enemyHp -= damageToEnemy * dmgMultiplyer
-	Global.playerHp -= damageToSelf * dmgMultiplyer
+	
+	if(Global.playerCharge < 10):
+		Global.playerCharge += noCorrectAnswers
+		if(Global.playerCharge>10):
+			Global.playerCharge = 10
+	
 	noCorrectAnswers = 0
 	updateDisplay()
+	
+	enemyTurn()
 
 func recCalculation() -> void:
 	var healToSelf = 0
@@ -256,8 +279,26 @@ func recCalculation() -> void:
 		healMultiplyer = 3
 	
 	Global.playerHp += healToSelf * healMultiplyer
+	
+	if(Global.playerCharge < 10):
+		Global.playerCharge += noCorrectAnswers
+		if (Global.playerCharge>10):
+			Global.playerCharge = 10
+			
 	noCorrectAnswers = 0
 	updateDisplay()
+	
+	enemyTurn()
 
 func spCalculation() -> void:
 	pass
+	
+	updateDisplay()
+	
+	enemyTurn()
+
+func enemyTurn() -> void:
+	#enemy attack animation
+	Global.playerHp -= Global.enemyDmg
+	
+	updateDisplay()
