@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq7kh8068wydt"]
+[gd_scene load_steps=15 format=3 uid="uid://cq7kh8068wydt"]
 
 [ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
 [ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
@@ -9,9 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="4_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="5_7lihs"]
 [ext_resource type="PackedScene" uid="uid://dpeyiqobx84gm" path="res://Scenes/Popups/game pause.tscn" id="9_bf53h"]
+[ext_resource type="PackedScene" uid="uid://n1wxeae77boc" path="res://Scenes/Popups/game over screen.tscn" id="9_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://daf2yrxovwj0l" path="res://Scenes/Popups/skill subject.tscn" id="10_71axn"]
 [ext_resource type="PackedScene" uid="uid://dl3vw3xrl3kjn" path="res://Scenes/Popups/skill difficulty.tscn" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://bgqqre1j37jpd" path="res://Scenes/Popups/question screen.tscn" id="12_3cx6b"]
+[ext_resource type="PackedScene" uid="uid://dwrtq05bqmsyk" path="res://Scenes/Popups/game complete screen.tscn" id="14_1phco"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
@@ -19,6 +21,7 @@ metadata/_edit_vertical_guides_ = [960.0, 50.0]
 metadata/_edit_horizontal_guides_ = [540.0]
 
 [node name="StageDiff" type="Label" parent="."]
+visible = false
 offset_left = 50.0
 offset_right = 333.0
 offset_bottom = 45.0
@@ -26,6 +29,7 @@ theme_override_font_sizes/font_size = 32
 text = "Stage Diff Checker"
 
 [node name="Skill Checker" type="Label" parent="."]
+visible = false
 offset_left = 50.0
 offset_top = 41.0
 offset_right = 255.0
@@ -34,6 +38,7 @@ theme_override_font_sizes/font_size = 32
 text = "Skill Checker"
 
 [node name="Skill Sub Checker" type="Label" parent="."]
+visible = false
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 311.0
@@ -42,6 +47,7 @@ theme_override_font_sizes/font_size = 32
 text = "Skill Sub Checker"
 
 [node name="Sub Diff Checker" type="Label" parent="."]
+visible = false
 offset_left = 49.0
 offset_top = 116.0
 offset_right = 445.0
@@ -181,6 +187,13 @@ theme_override_font_sizes/font_size = 100
 text = "Guess"
 
 [node name="Popups" type="Node" parent="."]
+
+[node name="GameCompleteScreen" parent="Popups" instance=ExtResource("14_1phco")]
+visible = false
+
+[node name="GameOverScreen" parent="Popups" instance=ExtResource("9_rfjv2")]
+visible = false
+z_index = 5
 
 [node name="GamePause" parent="Popups" instance=ExtResource("9_bf53h")]
 visible = false

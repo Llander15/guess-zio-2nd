@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://n1wxeae77boc"]
+[gd_scene load_steps=3 format=3 uid="uid://dwrtq05bqmsyk"]
 
-[ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="1_jqjrj"]
+[ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="1_dlng4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygn1d"]
 corner_radius_top_left = 50
@@ -27,14 +27,14 @@ color = Color(1, 1, 1, 0)
 
 [node name="Game Over" type="Label" parent="."]
 layout_mode = 0
-offset_left = 210.0
+offset_left = 93.0
 offset_top = 82.0
-offset_right = 753.0
+offset_right = 868.0
 offset_bottom = 219.0
 theme_override_font_sizes/font_size = 100
-text = "Game Over"
+text = "Game Complete"
 
-[node name="Return btn" parent="." instance=ExtResource("1_jqjrj")]
+[node name="Return btn" parent="." instance=ExtResource("1_dlng4")]
 layout_mode = 0
 offset_left = 306.0
 offset_top = 319.0

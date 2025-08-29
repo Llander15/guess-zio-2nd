@@ -4,15 +4,20 @@ var answers = []
 var answerButtons = []
 
 func _ready() -> void:
-	randomize()  # Without this, randomness is predictable
+	randomize()  # Without this, randomness is predictable (like shuffle and randi functions)
+	Global.playerCharge = 0 #Always starts the game at 0 charge and prevents from getting charges from last game
+	
 	#initially hides the popups
 	#gets buggy when only using toggle visibility
 	$Popups/GamePause.hide() 
 	$Popups/SkillSubject.hide()
 	$Popups/SkillDifficulty.hide()
 	$Popups/QuestionScreen.hide()
+	$Popups/GameOverScreen.hide()
+	$Popups/GameCompleteScreen.hide()
 	
 	#getting nodes from popups
+	
 	#Skill Subject nodes
 	$Popups/SkillSubject.get_node("MarginContainer/HBoxContainer/HTML").pressed.connect(_on_html_pressed)
 	$Popups/SkillSubject.get_node("MarginContainer/HBoxContainer/CSS").pressed.connect(_on_css_pressed)
@@ -35,6 +40,12 @@ func _ready() -> void:
 	$Popups/QuestionScreen.get_node("C Button").pressed.connect(_on_c_button_pressed)
 	$Popups/QuestionScreen.get_node("D Button").pressed.connect(_on_d_button_pressed)
 	
+	#Game end return buttons
+	#both buttons connects to a 1 func
+	$Popups/GameCompleteScreen.get_node("Return btn").pressed.connect(gameEndReturnBtn)
+	$Popups/GameOverScreen.get_node("Return btn").pressed.connect(gameEndReturnBtn)
+	
+	
 	#difficlty check
 	$StageDiff.text = Global.getStageDiff()
 	
@@ -52,6 +63,7 @@ func updateDisplay() -> void:
 	$"SP Charge".text= "Charge: " + str(Global.playerCharge) + "/10"
 
 #INPUTS ------------------------------------------------------------------------
+
 #pause button
 func _on_pause_pressed() -> void:
 	$Popups/GamePause.visible = true
@@ -87,7 +99,12 @@ func _on_special_pressed() -> void:
 	$"Skill Sub Checker".text = Logic.getSubject()
 	$"Sub Diff Checker".text = Logic.getSubDiff()
 	
-	questionLoop()
+	
+	if (Global.playerCharge >= 5):
+		questionLoop()
+		$Popups/QuestionScreen.visible = true
+		Global.playerCharge -= 5
+	
 	#sets action to sp
 	#initially disabled/hidden and only is usable when a condition is right
 
@@ -162,20 +179,24 @@ func _on_d_button_pressed() -> void:
 #Game logic/functions ------------------------------------------------------------------------------
 
 #Questionare variables
-var progress = 0 #0-5, used to show what number(in progress bar) and get as array index 
-var noCorrectAnswers = 0 #increase as player get the coreect answer, will be use to calculate dmg rec and sp 
+var progress = 0 #0-5, used to show what number(in progress bar) and get question as array index 
+var noCorrectAnswers = 0 #Number of Correct Answers 
+#increase as player get the coreect answer, will be use to add charge and calculate dmg rec and sp 
 var Qn #Queastion number, array in which content structure is as the same as the variables bellow: 
 #[string, string, array[string, string, string]]
 var Question = ''
 var Correct = ''
 var Wrong = []
+#Questions are stored at questions.gd (Scripts>Game scripts>questions.gd)
 
-var correctPlacement #used for answer placement to be able to randomly place it in the questionare
-var playerAnswer #user's picked answer, will correct if it is the same sa the correctPlacement
+var correctPlacement #used for correct answer placement to be able to randomly place it in the questionare
+var playerAnswer #user's picked answer, if the same value as the correctPlacement user answered correct
 
-func questionLoop() -> void: #not really a lopp but a func that is called a lot 
+func questionLoop() -> void: #func to generate question
+	#this func and checkAnswer func will go back to back wth each other until the progress reached 5
+	
 	if (progress == 0): #generate a question on first call/ progress = 0
-		Logic.setQuestions() #
+		Logic.setQuestions() # set questions depending on what subject and diff and get 5 random questions
 	elif (progress == 5): #ends 'loop' if progress = 5
 		progress = 0
 		if (Logic.skill == 'recover'):
@@ -183,9 +204,10 @@ func questionLoop() -> void: #not really a lopp but a func that is called a lot
 		elif (Logic.skill == 'attack'):
 			dmgCalculation()
 		elif (Logic.skill == 'special'):
-			pass
+			spCalculation()
 		$Popups/QuestionScreen.hide()
 		return # ignores the rest of the function if progress is equal to 5
+	
 	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress #Progress Bar Display
 	
 	Qn = Logic.generatedQuestion[progress] #setting Question number based on progress
@@ -251,7 +273,7 @@ func dmgCalculation() -> void: #for Attack
 	
 	noCorrectAnswers = 0
 	updateDisplay()
-	
+	gameEnd()
 	enemyTurn()
 
 func recCalculation() -> void:
@@ -287,14 +309,30 @@ func recCalculation() -> void:
 			
 	noCorrectAnswers = 0
 	updateDisplay()
-	
+	gameEnd()
 	enemyTurn()
 
 func spCalculation() -> void:
-	pass
+	var damageToEnemy = 0
 	
+	if (noCorrectAnswers == 0): #0 
+		damageToEnemy = Global.enemyDmg * 0
+	elif (noCorrectAnswers == 1): #1 
+		damageToEnemy = Global.enemyDmg * 0.5
+	elif (noCorrectAnswers == 2): #2 
+		damageToEnemy = Global.playerDmg * 1
+	elif (noCorrectAnswers == 3): #3 
+		damageToEnemy = Global.playerDmg * 1.5
+	elif (noCorrectAnswers == 4): #4 
+		damageToEnemy = Global.playerDmg * 2
+	elif (noCorrectAnswers == 5): #5 
+		damageToEnemy = Global.playerDmg * 3
+	
+	Global.enemyHp -= damageToEnemy * 5
+	
+	noCorrectAnswers = 0
 	updateDisplay()
-	
+	gameEnd()
 	enemyTurn()
 
 func enemyTurn() -> void:
@@ -302,3 +340,14 @@ func enemyTurn() -> void:
 	Global.playerHp -= Global.enemyDmg
 	
 	updateDisplay()
+	gameEnd()
+
+
+func gameEnd() -> void:
+	if (Global.playerHp <= 0):
+		$Popups/GameOverScreen.visible = true
+	elif  (Global.enemyHp <= 0):
+		$Popups/GameCompleteScreen.visible = true
+
+func gameEndReturnBtn() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

@@ -26,8 +26,7 @@ script = ExtResource("1_vw5yt")
 metadata/_edit_vertical_guides_ = [960.0, 710.0]
 metadata/_edit_horizontal_guides_ = [540.0, 211.0, 436.0, 661.0, 891.0, 163.0, 143.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
+[node name="Blank Space(Prevents Interactions with the background)" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
 offset_left = -797.0
