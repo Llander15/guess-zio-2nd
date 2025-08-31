@@ -519,242 +519,188 @@ var js_easy = [
 	],
 	[ #Question # 5
 		'What keyword starts a loop in JavaScript?', # Question
-		'', # Answer
+		'for', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'repeat',
+			'loop',
+			'each'
 		]
 	],
 	[ #Question # 6
-		'', # Question
-		'', # Answer
+		'What data type is "123"?', # Question
+		'string', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'number',
+			'int',
+			'float'
 		]
 	],
 	[ #Question # 7
-		'', # Question
-		'', # Answer
+		'What keyword is used to declare a variable?', # Question
+		'var', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'set',
+			'def',
+			'declare'
 		]
 	],
 	[ #Question # 8
-		'', # Question
-		'', # Answer
+		'Which method shows a popup box?', # Question
+		'alert()', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'confirm()',
+			'log()',
+			'display()'
 		]
 	],
 	[ #Question # 9
-		'', # Question
-		'', # Answer
+		'How do you declare a constant?', # Question
+		'const x = 5', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'let x = 5',
+			'var x = 5',
+			'x = 5'
 		]
 	],
 	[ #Question # 10
-		'', # Question
-		'', # Answer
+		'What data type is "hello"?', # Question
+		'string', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'text',
+			'char',
+			'word'
 		]
 	]
 ]
 
 var js_medium = [
 	[ #Question # 1
-		'', # Question
-		'', # Answer
+		'Which method adds an item to the end of an array?', # Question
+		'push()', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'add()',
+			'append()',
+			'insert()'
 		]
 	],
 	[ #Question # 2
-		'', # Question
-		'', # Answer
+		'Which keyword has block-level scope?', # Question
+		'let', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'var',
+			'global',
+			'scope'
 		]
 	],
 	[ #Question # 3
-		'', # Question
-		'', # Answer
+		'Which JavaScript operator is used to combine two or more strings?', # Question
+		'+', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'&',
+			'=',
+			'/'
 		]
 	],
 	[ #Question # 4
-		'', # Question
-		'', # Answer
+		'Which operator combines conditions? Example: if(a > 0 __ b > 0)', # Question
+		'&&', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'!',
+			'||',
+			'=='
 		]
 	],
 	[ #Question # 5
-		'', # Question
-		'', # Answer
+		'What does .length return on a string?', # Question
+		'Number of characters', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'Number of lines',
+			'Number of words',
+			'Index of last character'
 		]
 	],
 	[ #Question # 6
-		'', # Question
-		'', # Answer
+		'Which array method creates a new array from another?', # Question
+		'filter()', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'push()',
+			'pop()',
+			'splice()'
 		]
 	],
 	[ #Question # 7
-		'', # Question
-		'', # Answer
+		'Which keyword has block scope?', # Question
+		'let', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'var',
+			'function',
+			'global'
 		]
 	],
 	[ #Question # 8
-		'', # Question
-		'', # Answer
+		'What is the result of true && false?', # Question
+		'false', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'true',
+			'"false"',
+			'undefined'
 		]
 	],
 	[ #Question # 9
-		'', # Question
-		'', # Answer
+		'What is the result of true || false?', # Question
+		'true', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 10
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
+			'false',
+			'undefined',
+			'"true"'
 		]
 	]
 ]
 
 var js_hard = [
 	[ #Question # 1
-		'', # Question
-		'', # Answer
+		'Which method transforms an array into a single value?', # Question
+		'reduce()', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'filter()',
+			'map()',
+			'forEach()'
 		]
 	],
 	[ #Question # 2
-		'', # Question
-		'', # Answer
+		'What is the output of type of null?', # Question
+		'"object"', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'"null"',
+			'"undefined"',
+			'"NaN"'
 		]
 	],
 	[ #Question # 3
-		'', # Question
-		'', # Answer
+		'Which keyword prevents a variable from being reassigned?', # Question
+		'const', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'var',
+			'let',
+			'static'
 		]
 	],
 	[ #Question # 4
-		'', # Question
-		'', # Answer
+		'Which method can stop setInterval()?', # Question
+		'clearInterval()', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
+			'clearTimeout()',
+			'stopInterval()',
+			'cancelInterval()'
 		]
 	],
 	[ #Question # 5
-		'', # Question
-		'', # Answer
+		'Which operator checks both value and type?', # Question
+		'===', # Answer
 		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 6
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 7
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 8
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 9
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
-		]
-	],
-	[ #Question # 10
-		'', # Question
-		'', # Answer
-		[   # Wrong Answers
-			'',
-			'',
-			''
+			'==',
+			'!=',
+			'='
 		]
 	]
 ]

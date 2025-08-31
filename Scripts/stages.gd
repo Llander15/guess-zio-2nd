@@ -1,6 +1,19 @@
 extends Node2D
 "res://Scripts/Global.gd"
 
+func _ready() -> void:
+	if (PlayerData.player_data["achievements"]["easyStagePassed"] == true):
+		$Buttons/normal.disabled = false
+	else:
+		$Buttons/normal.disabled = true
+		$Buttons/normal/Label.text = "Locked"
+	
+	if (PlayerData.player_data["achievements"]["normalStagePassed"] == true):
+		$Buttons/hard.disabled = false
+	else:
+		$Buttons/hard.disabled = true
+		$Buttons/hard/Label.text = "Locked"
+
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 

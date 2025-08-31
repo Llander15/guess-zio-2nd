@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	PlayerData.save_player_data()
+
 func _on_exit_btn_pressed() -> void:
 	$Popups/ExitGameConfirmation.popup_centered()
 

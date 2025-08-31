@@ -348,6 +348,12 @@ func gameEnd() -> void:
 		$Popups/GameOverScreen.visible = true
 	elif  (Global.enemyHp <= 0):
 		$Popups/GameCompleteScreen.visible = true
+		if (Global.stageDiff == 'easy'):
+			PlayerData.player_data["achievements"]["easyStagePassed"] = true
+		elif (Global.stageDiff == 'normal'):
+			PlayerData.player_data["achievements"]["normalStagePassed"] = true
+		elif (Global.stageDiff == 'hard'):
+			PlayerData.player_data["achievements"]["hardStagePassed"] = true
 
 func gameEndReturnBtn() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

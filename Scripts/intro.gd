@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	PlayerData.load_player_data()
+	PlayerData.save_player_data()
 
 
 func _on_timer_timeout() -> void:
