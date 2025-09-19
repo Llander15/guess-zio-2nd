@@ -10,7 +10,167 @@ script = ExtResource("1_gm4tm")
 metadata/_edit_horizontal_guides_ = [83.0, 211.0, 1017.0]
 metadata/_edit_vertical_guides_ = [534.0]
 
+[node name="html scrol container" type="ScrollContainer" parent="."]
+offset_left = 58.0
+offset_top = 216.0
+offset_right = 604.0
+offset_bottom = 1309.0
+scale = Vector2(0.732618, 0.732618)
+
+[node name="html lessons" type="VBoxContainer" parent="html scrol container"]
+layout_mode = 2
+
+[node name="lesson1" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson1"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 56
+text = "Hyperlinks   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson2" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson2"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "Lists"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson3" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson3"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "Images"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson4" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson4"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Forms & Inputs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson5" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson5"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Headings & Titles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson6" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson6"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "Tables"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson7" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson7"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Multimedia in HTML"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson8" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson8"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Semantic Tags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson9" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson9"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Advanced Elements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesson10" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="html scrol container/html lessons/lesson10"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 42.0
+offset_right = 444.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Scripts & Styles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="css scrol container" type="ScrollContainer" parent="."]
+visible = false
 offset_left = 58.0
 offset_top = 216.0
 offset_right = 604.0
@@ -167,166 +327,6 @@ offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Pseudo-elements"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="html scrol container" type="ScrollContainer" parent="."]
-visible = false
-offset_left = 58.0
-offset_top = 216.0
-offset_right = 604.0
-offset_bottom = 1309.0
-scale = Vector2(0.732618, 0.732618)
-
-[node name="html lessons" type="VBoxContainer" parent="html scrol container"]
-layout_mode = 2
-
-[node name="lesson1" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson1"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_font_sizes/font_size = 56
-text = "Hyperlinks   "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson2" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson2"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "Lists"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson3" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson3"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "Images"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson4" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson4"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Forms & Inputs"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson5" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson5"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Headings & Titles"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson6" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson6"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "Tables"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson7" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson7"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Multimedia in HTML"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson8" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson8"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Semantic Tags"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson9" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson9"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Advanced Elements"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="lesson10" parent="html scrol container/html lessons" instance=ExtResource("2_nvsig")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="html scrol container/html lessons/lesson10"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 42.0
-offset_right = 444.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Scripts & Styles"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -694,16 +694,6 @@ offset_bottom = 163.0
 texture_normal = ExtResource("3_qykhp")
 texture_hover = ExtResource("4_f2cop")
 
-[connection signal="pressed" from="css scrol container/css lessons/css1" to="." method="_on_css_1_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css2" to="." method="_on_css_2_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css3" to="." method="_on_css_3_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css4" to="." method="_on_css_4_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css5" to="." method="_on_css_5_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css6" to="." method="_on_css_6_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css7" to="." method="_on_css_7_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css8" to="." method="_on_css_8_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css9" to="." method="_on_css_9_pressed"]
-[connection signal="pressed" from="css scrol container/css lessons/css10" to="." method="_on_css_10_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson1" to="." method="_on_lesson_1_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson2" to="." method="_on_lesson_2_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson3" to="." method="_on_lesson_3_pressed"]
@@ -714,6 +704,16 @@ texture_hover = ExtResource("4_f2cop")
 [connection signal="pressed" from="html scrol container/html lessons/lesson8" to="." method="_on_lesson_8_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson9" to="." method="_on_lesson_9_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson10" to="." method="_on_lesson_10_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css1" to="." method="_on_css_1_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css2" to="." method="_on_css_2_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css3" to="." method="_on_css_3_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css4" to="." method="_on_css_4_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css5" to="." method="_on_css_5_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css6" to="." method="_on_css_6_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css7" to="." method="_on_css_7_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css8" to="." method="_on_css_8_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css9" to="." method="_on_css_9_pressed"]
+[connection signal="pressed" from="css scrol container/css lessons/css10" to="." method="_on_css_10_pressed"]
 [connection signal="pressed" from="js scrol container/js lessons/js1" to="." method="_on_js_1_pressed"]
 [connection signal="pressed" from="js scrol container/js lessons/js2" to="." method="_on_js_2_pressed"]
 [connection signal="pressed" from="js scrol container/js lessons/js3" to="." method="_on_js_3_pressed"]
