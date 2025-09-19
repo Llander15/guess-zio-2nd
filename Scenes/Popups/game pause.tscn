@@ -18,13 +18,13 @@ corner_radius_bottom_left = 50
 [node name="GamePause" type="Panel"]
 custom_minimum_size = Vector2(500, 500)
 offset_left = 660.0
-offset_top = 163.0
+offset_top = 277.0
 offset_right = 1260.0
-offset_bottom = 941.0
+offset_bottom = 822.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_po1v7")
 script = ExtResource("1_vw5yt")
 metadata/_edit_vertical_guides_ = [960.0, 710.0]
-metadata/_edit_horizontal_guides_ = [540.0, 211.0, 436.0, 661.0, 891.0, 163.0, 143.0]
+metadata/_edit_horizontal_guides_ = [540.0, 211.0, 436.0, 661.0, 891.0, 163.0, 143.0, 710.0]
 
 [node name="Blank Space(Prevents Interactions with the background)" type="ColorRect" parent="."]
 z_index = -1
@@ -62,6 +62,7 @@ theme_override_font_sizes/font_size = 80
 text = "Resume"
 
 [node name="Settings" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_po1v7")]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Settings"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://db0d6l0kcyalg"]
+
+[ext_resource type="Texture2D" uid="uid://b73h68dkhcrl0" path="res://Assets/BG/Main BG.jpg" id="1_4hxq3"]
+[ext_resource type="Script" uid="uid://11v416d3d2br" path="res://Scripts/settings.gd" id="1_flfri"]
+[ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="3_yrknh"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_flfri")
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="MainBg" type="Sprite2D" parent="."]
+position = Vector2(960, 489)
+scale = Vector2(2.60982, 2.60982)
+texture = ExtResource("1_4hxq3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 60.0
+offset_top = 73.0
+offset_right = 1860.0
+offset_bottom = 994.0
+color = Color(0, 0, 0, 0.694118)
+
+[node name="Volume Slider" type="HSlider" parent="."]
+offset_left = 122.0
+offset_top = 259.0
+offset_right = 1798.0
+offset_bottom = 326.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="Volume Label" type="Label" parent="."]
+offset_left = 842.0
+offset_top = 158.0
+offset_right = 1077.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 64
+text = "Volume"
+
+[node name="test_ volume value" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 163.0
+offset_right = 426.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 64
+
+[node name="Back Btn" parent="." instance=ExtResource("3_yrknh")]
+offset_left = 840.0
+offset_top = 721.0
+offset_right = 1340.0
+offset_bottom = 921.0
+
+[node name="Label" type="Label" parent="Back Btn"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 31.0
+offset_right = 444.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Back Btn" to="." method="_on_back_btn_pressed"]

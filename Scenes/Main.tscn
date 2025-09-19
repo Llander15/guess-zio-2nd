@@ -83,3 +83,5 @@ visible = false
 
 [connection signal="pressed" from="Buttons/Exit btn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Lesson" to="." method="_on_lesson_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]

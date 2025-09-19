@@ -2,7 +2,7 @@ extends Node
 
 var player_data = {
 	"settings": {
-		"volume": 1.0
+		"volume": 0 #min value -80, masx value 0, since we're using dB as value
 	},
 	"achievements": {
 		"easyStagePassed": false,
@@ -44,3 +44,6 @@ func load_player_data():
 			if parsed:
 				#assign parsed as player_data
 				player_data = parsed
+	
+	#set volume base on loaded data
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), player_data["settings"]["volume"])
