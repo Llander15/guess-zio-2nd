@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://db0d6l0kcyalg"]
+[gd_scene load_steps=6 format=3 uid="uid://db0d6l0kcyalg"]
 
 [ext_resource type="Texture2D" uid="uid://b73h68dkhcrl0" path="res://Assets/BG/Main BG.jpg" id="1_4hxq3"]
 [ext_resource type="Script" uid="uid://11v416d3d2br" path="res://Scripts/settings.gd" id="1_flfri"]
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="3_yrknh"]
+[ext_resource type="PackedScene" uid="uid://chue0j81p1gtu" path="res://Scenes/Popups/confirm delete.tscn" id="4_w1nw0"]
+
+[sub_resource type="Theme" id="Theme_w1nw0"]
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_flfri")
@@ -60,5 +63,39 @@ text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Delete Player Data" parent="." instance=ExtResource("3_yrknh")]
+offset_left = 840.0
+offset_top = 557.0
+offset_right = 1340.0
+offset_bottom = 757.0
+
+[node name="Label2" type="Label" parent="Delete Player Data"]
+layout_mode = 0
+offset_left = 62.5163
+offset_top = 39.5936
+offset_right = 437.516
+offset_bottom = 156.594
+theme_override_font_sizes/font_size = 48
+text = "Delete"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Delete Player Data"]
+layout_mode = 0
+offset_left = 20.8386
+offset_top = -133.368
+offset_right = 483.839
+offset_bottom = 1.63179
+theme_override_font_sizes/font_size = 48
+text = "Delete Player Data? "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmDelete" parent="." instance=ExtResource("4_w1nw0")]
+size = Vector2i(1160, 490)
+visible = false
+theme = SubResource("Theme_w1nw0")
+
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="Back Btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Delete Player Data" to="." method="_on_delete_player_data_pressed"]

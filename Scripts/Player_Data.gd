@@ -10,6 +10,22 @@ var player_data = {
 		"hardStagePassed": false
 	}
 }
+func delete_player_data():
+	var save_path = "user://player_data.json"
+	var dir = DirAccess.open("user://")
+
+	if dir.file_exists("player_data.json"):
+		var error = dir.remove("player_data.json")
+		if error == OK:
+			print("Player data deleted.")
+		else:
+			print("Failed to delete player data. Error code:", error)
+	else:
+		print("No player data file to delete.")
+
+	# Close the game
+	get_tree().quit()
+
 
 func save_player_data():
 	#file path

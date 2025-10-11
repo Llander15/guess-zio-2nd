@@ -1,74 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://1sj4vq1nd86s"]
 
-[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="1_05yyl"]
 [ext_resource type="Script" uid="uid://w5xvdevcu724" path="res://Scripts/stages.gd" id="1_6xoop"]
-[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="2_6xoop"]
 [ext_resource type="Texture2D" uid="uid://cju8exd055s0x" path="res://Assets/UI/exit.png" id="3_jwmj4"]
 [ext_resource type="Texture2D" uid="uid://byrvswlc3fpm5" path="res://Assets/UI/exit hover.png" id="5_jwmj4"]
+[ext_resource type="Texture2D" uid="uid://cfebfsxi0g6o6" path="res://Assets/UI/floor unselected selection.png" id="6_jmejp"]
+[ext_resource type="Texture2D" uid="uid://dnsynx1le7ywv" path="res://Assets/UI/floor selected selection.png" id="7_p1yhh"]
 
 [node name="Stages" type="Node2D"]
 script = ExtResource("1_6xoop")
 metadata/_edit_horizontal_guides_ = [698.0, 50.0]
-metadata/_edit_vertical_guides_ = [1870.0]
+metadata/_edit_vertical_guides_ = [1870.0, 960.0]
 
 [node name="Buttons" type="Node" parent="."]
-
-[node name="easy" type="TextureButton" parent="Buttons"]
-offset_left = 92.0
-offset_top = 498.0
-offset_right = 592.0
-offset_bottom = 698.0
-texture_normal = ExtResource("1_05yyl")
-texture_pressed = ExtResource("1_05yyl")
-texture_hover = ExtResource("2_6xoop")
-
-[node name="Label" type="Label" parent="Buttons/easy"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 37.0
-offset_right = 437.0
-offset_bottom = 147.0
-theme_override_font_sizes/font_size = 80
-text = "Easy"
-horizontal_alignment = 1
-
-[node name="normal" type="TextureButton" parent="Buttons"]
-offset_left = 726.0
-offset_top = 498.0
-offset_right = 1226.0
-offset_bottom = 698.0
-texture_normal = ExtResource("1_05yyl")
-texture_pressed = ExtResource("1_05yyl")
-texture_hover = ExtResource("2_6xoop")
-
-[node name="Label" type="Label" parent="Buttons/normal"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 35.0
-offset_right = 436.0
-offset_bottom = 145.0
-theme_override_font_sizes/font_size = 80
-text = "Normal"
-horizontal_alignment = 1
-
-[node name="hard" type="TextureButton" parent="Buttons"]
-offset_left = 1345.0
-offset_top = 498.0
-offset_right = 1845.0
-offset_bottom = 698.0
-texture_normal = ExtResource("1_05yyl")
-texture_pressed = ExtResource("1_05yyl")
-texture_hover = ExtResource("2_6xoop")
-
-[node name="Label" type="Label" parent="Buttons/hard"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 37.0
-offset_right = 439.0
-offset_bottom = 147.0
-theme_override_font_sizes/font_size = 80
-text = "Hard"
-horizontal_alignment = 1
 
 [node name="back" type="TextureButton" parent="Buttons"]
 offset_left = 1780.0
@@ -79,7 +22,63 @@ texture_normal = ExtResource("3_jwmj4")
 texture_pressed = ExtResource("3_jwmj4")
 texture_hover = ExtResource("5_jwmj4")
 
-[connection signal="pressed" from="Buttons/easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="Buttons/normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="Buttons/hard" to="." method="_on_hard_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 171.0
+offset_top = 263.0
+offset_right = 940.0
+offset_bottom = 554.0
+scale = Vector2(2.05164, 2.05164)
+theme_override_constants/separation = 50
+
+[node name="EasyDoor" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_jmejp")
+texture_hover = ExtResource("7_p1yhh")
+
+[node name="Label" type="Label" parent="HBoxContainer/EasyDoor"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 287.0
+offset_right = 206.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 48
+text = "Easy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NormalDoor" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_jmejp")
+texture_hover = ExtResource("7_p1yhh")
+
+[node name="Label" type="Label" parent="HBoxContainer/NormalDoor"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 287.0
+offset_right = 206.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 48
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HardDoor" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_jmejp")
+texture_hover = ExtResource("7_p1yhh")
+
+[node name="Label" type="Label" parent="HBoxContainer/HardDoor"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 287.0
+offset_right = 206.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 48
+text = "Hard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Buttons/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HBoxContainer/EasyDoor" to="." method="_on_easy_door_pressed"]
+[connection signal="pressed" from="HBoxContainer/NormalDoor" to="." method="_on_normal_door_pressed"]
+[connection signal="pressed" from="HBoxContainer/HardDoor" to="." method="_on_hard_door_pressed"]
