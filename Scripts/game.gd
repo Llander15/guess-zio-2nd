@@ -50,6 +50,10 @@ func _ready() -> void:
 	$StageDiff.text = Global.getStageDiff()
 	
 	updateDisplay()
+	$"Player/player hp bar".max_value = Global.maxPlayerHp
+	$"Player/player hp bar".value = Global.playerHp
+	$"Enemy/enemy hp bar".max_value = Global.maxEnemyHp
+	$"Enemy/enemy hp bar".value = Global.enemyHp
 	#
 	Logic.duplicateQuestions()
 	
@@ -60,15 +64,26 @@ func _ready() -> void:
 	if GlobalBgm.is_playing():
 		GlobalBgm.stop()
 
-
-func updateDisplay() -> void: 
-	$"Player/player hp bar".max_value = Global.maxPlayerHp
-	$"Player/player hp bar".value = Global.playerHp
+func enemyHpUpdate():
 	$"Enemy/enemy hp bar".max_value = Global.maxEnemyHp
 	$"Enemy/enemy hp bar".value = Global.enemyHp
+	#can add a dmg text too later
+
+func playerHpUpdate():
+	$"Player/player hp bar".max_value = Global.maxPlayerHp
+	$"Player/player hp bar".value = Global.playerHp
+
+func updateDisplay() -> void: 
 	$Popups/QuestionScreen.get_node('Progress 1 to 5').value = progress
 	$Popups/QuestionScreen.get_node("No of correct Answers").text = "Correct: " + str(noCorrectAnswers) + "/5"
-	$"SP Charge".text= "Charge: " + str(Global.playerCharge) + "/10"
+	$"Buttons/HBoxContainer/Special/SP Charge".text= "Charge: " + str(Global.playerCharge) + "/10"
+	
+	
+	
+	if Global.playerCharge<5:
+		$Buttons/HBoxContainer/Special.disabled = true
+	else:
+		$Buttons/HBoxContainer/Special.disabled = false
 
 #INPUTS ------------------------------------------------------------------------
 
@@ -272,7 +287,19 @@ func dmgCalculation() -> void: #for Attack
 	elif (Logic.subDiff == 'hard'):
 		dmgMultiplyer = 2
 	
+	#$Player_/AnimationPlayer.play("attack_combo")
+	#$Enemy_/AnimationPlayer.play("attack_combo")
+	
 	Global.enemyHp -= damageToEnemy * dmgMultiplyer
+	
+	if (damageToEnemy * dmgMultiplyer > 0):
+		$Player_/AnimationPlayer.play("attack_combo")
+	else:
+		enemyTurn()
+		$Enemy_/AnimationPlayer.play("attack_combo")
+	
+	
+	
 	
 	if(Global.playerCharge < 10):
 		Global.playerCharge += noCorrectAnswers
@@ -282,7 +309,7 @@ func dmgCalculation() -> void: #for Attack
 	noCorrectAnswers = 0
 	updateDisplay()
 	gameEnd()
-	enemyTurn()
+	#enemyTurn()
 
 func recCalculation() -> void:
 	var healToSelf = 0
@@ -316,9 +343,12 @@ func recCalculation() -> void:
 			Global.playerCharge = 10
 			
 	noCorrectAnswers = 0
+	
+	$Player_.regen()
+	
 	updateDisplay()
 	gameEnd()
-	enemyTurn()
+	#enemyTurn()
 
 func spCalculation() -> void:
 	var damageToEnemy = 0
@@ -341,7 +371,7 @@ func spCalculation() -> void:
 	noCorrectAnswers = 0
 	updateDisplay()
 	gameEnd()
-	enemyTurn()
+	#enemyTurn()
 
 func enemyTurn() -> void:
 	#enemy attack animation

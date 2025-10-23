@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq7kh8068wydt"]
+[gd_scene load_steps=19 format=3 uid="uid://cq7kh8068wydt"]
 
 [ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
 [ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
@@ -9,17 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="4_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="5_7lihs"]
 [ext_resource type="PackedScene" uid="uid://dpeyiqobx84gm" path="res://Scenes/Popups/game pause.tscn" id="9_bf53h"]
+[ext_resource type="PackedScene" uid="uid://kn3ww41sn366" path="res://Scenes/characters/enemy1.tscn" id="9_nnt18"]
 [ext_resource type="PackedScene" uid="uid://n1wxeae77boc" path="res://Scenes/Popups/game over screen.tscn" id="9_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://daf2yrxovwj0l" path="res://Scenes/Popups/skill subject.tscn" id="10_71axn"]
 [ext_resource type="PackedScene" uid="uid://dl3vw3xrl3kjn" path="res://Scenes/Popups/skill difficulty.tscn" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://bgqqre1j37jpd" path="res://Scenes/Popups/question screen.tscn" id="12_3cx6b"]
 [ext_resource type="PackedScene" uid="uid://dwrtq05bqmsyk" path="res://Scenes/Popups/game complete screen.tscn" id="14_1phco"]
 [ext_resource type="AudioStream" uid="uid://c2mh3eu6nonn" path="res://Assets/BGM/fight-bgm.mp3" id="15_nb51f"]
+[ext_resource type="Texture2D" uid="uid://l2vms4h5bbgi" path="res://Assets/UI/player border.png" id="17_ewbju"]
+[ext_resource type="PackedScene" uid="uid://difdw6a0qowvh" path="res://Scenes/characters/player.tscn" id="18_85qyi"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
-metadata/_edit_vertical_guides_ = [960.0, 50.0]
-metadata/_edit_horizontal_guides_ = [540.0]
+metadata/_edit_vertical_guides_ = [960.0, 50.0, 561.0, 280.0, 1870.0, 1443.0, 1380.0, 540.0]
+metadata/_edit_horizontal_guides_ = [580.0, 956.0, 50.0]
 
 [node name="StageDiff" type="Label" parent="."]
 visible = false
@@ -56,67 +59,33 @@ offset_bottom = 161.0
 theme_override_font_sizes/font_size = 32
 text = "Subject Difficulty Checker"
 
-[node name="SP Charge" type="Label" parent="."]
-z_index = 5
-offset_left = 1536.0
-offset_top = 786.0
-offset_right = 1747.0
-offset_bottom = 831.0
-theme_override_font_sizes/font_size = 32
-text = "Charge: 0 / 10"
-horizontal_alignment = 1
-
 [node name="Buttons" type="Node" parent="."]
 
-[node name="Special" type="TextureButton" parent="Buttons"]
-offset_left = 1448.0
-offset_top = 830.0
-offset_right = 1948.0
-offset_bottom = 1030.0
-scale = Vector2(0.743906, 0.743906)
+[node name="Pause" type="TextureButton" parent="Buttons"]
+offset_left = 1780.0
+offset_top = 50.0
+offset_right = 1870.0
+offset_bottom = 250.0
+texture_normal = ExtResource("3_fgofq")
+texture_pressed = ExtResource("3_fgofq")
+texture_hover = ExtResource("4_2irst")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+offset_left = 506.0
+offset_top = 785.0
+offset_right = 2106.0
+offset_bottom = 985.0
+scale = Vector2(0.852358, 0.852358)
+theme_override_constants/separation = 50
+
+[node name="Recover" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("4_b2bpf")
 texture_pressed = ExtResource("4_b2bpf")
 texture_hover = ExtResource("5_7lihs")
 
-[node name="Label" type="Label" parent="Buttons/Special"]
-layout_mode = 0
-offset_left = 143.835
-offset_top = 49.7375
-offset_right = 359.835
-offset_bottom = 137.737
-theme_override_font_sizes/font_size = 64
-text = "Special"
-
-[node name="Attack" type="TextureButton" parent="Buttons"]
-offset_left = 1056.0
-offset_top = 830.0
-offset_right = 1556.0
-offset_bottom = 1030.0
-scale = Vector2(0.743906, 0.743906)
-texture_normal = ExtResource("4_b2bpf")
-texture_pressed = ExtResource("4_b2bpf")
-texture_hover = ExtResource("5_7lihs")
-
-[node name="Label" type="Label" parent="Buttons/Attack"]
-layout_mode = 0
-offset_left = 155.934
-offset_top = 47.049
-offset_right = 353.934
-offset_bottom = 135.049
-theme_override_font_sizes/font_size = 64
-text = "Attack"
-
-[node name="Recover" type="TextureButton" parent="Buttons"]
-offset_left = 664.0
-offset_top = 831.0
-offset_right = 1164.0
-offset_bottom = 1031.0
-scale = Vector2(0.743906, 0.743906)
-texture_normal = ExtResource("4_b2bpf")
-texture_pressed = ExtResource("4_b2bpf")
-texture_hover = ExtResource("5_7lihs")
-
-[node name="Label" type="Label" parent="Buttons/Recover"]
+[node name="Label" type="Label" parent="Buttons/HBoxContainer/Recover"]
 layout_mode = 0
 offset_left = 122.327
 offset_top = 48.3933
@@ -125,15 +94,46 @@ offset_bottom = 136.393
 theme_override_font_sizes/font_size = 64
 text = "Recover"
 
-[node name="Pause" type="TextureButton" parent="Buttons"]
-offset_left = 1730.0
-offset_top = 50.0
-offset_right = 1820.0
-offset_bottom = 130.0
-texture_normal = ExtResource("3_fgofq")
-texture_pressed = ExtResource("3_fgofq")
-texture_hover = ExtResource("4_2irst")
-metadata/_edit_use_anchors_ = true
+[node name="Attack" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_b2bpf")
+texture_pressed = ExtResource("4_b2bpf")
+texture_hover = ExtResource("5_7lihs")
+
+[node name="Label" type="Label" parent="Buttons/HBoxContainer/Attack"]
+layout_mode = 0
+offset_left = 155.934
+offset_top = 47.049
+offset_right = 353.934
+offset_bottom = 135.049
+theme_override_font_sizes/font_size = 64
+text = "Attack"
+
+[node name="Special" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_b2bpf")
+texture_pressed = ExtResource("4_b2bpf")
+texture_hover = ExtResource("5_7lihs")
+
+[node name="Label" type="Label" parent="Buttons/HBoxContainer/Special"]
+layout_mode = 0
+offset_left = 143.835
+offset_top = 49.7375
+offset_right = 359.835
+offset_bottom = 137.737
+theme_override_font_sizes/font_size = 64
+text = "Special"
+
+[node name="SP Charge" type="Label" parent="Buttons/HBoxContainer/Special"]
+z_index = 5
+layout_mode = 0
+offset_left = -0.696071
+offset_top = -32.0
+offset_right = 499.304
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 32
+text = "Charge: 0 / 10"
+horizontal_alignment = 1
 
 [node name="Player" type="Node" parent="."]
 
@@ -143,21 +143,21 @@ anchor_left = -0.088
 anchor_top = -0.263
 anchor_right = -0.088
 anchor_bottom = -0.263
-offset_left = 268.96
-offset_top = 1023.04
-offset_right = 1918.96
-offset_bottom = 1373.04
-scale = Vector2(0.343188, 0.259203)
+offset_left = 218.96
+offset_top = 891.04
+offset_right = 1868.96
+offset_bottom = 1241.04
+scale = Vector2(0.303835, 0.18137)
 value = 100.0
 texture_under = ExtResource("1_kldst")
 texture_over = ExtResource("2_b2bpf")
 texture_progress = ExtResource("3_7lihs")
 
 [node name="player name" type="Label" parent="Player"]
-offset_left = 101.0
-offset_top = 578.0
-offset_right = 247.0
-offset_bottom = 715.0
+offset_left = 202.0
+offset_top = -422.0
+offset_right = 348.0
+offset_bottom = -285.0
 theme_override_font_sizes/font_size = 100
 text = "Zio"
 
@@ -169,10 +169,10 @@ anchor_left = -0.088
 anchor_top = -0.263
 anchor_right = -0.088
 anchor_bottom = -0.263
-offset_left = 1421.96
-offset_top = 446.04
-offset_right = 3071.96
-offset_bottom = 796.04
+offset_left = 1292.96
+offset_top = 335.04
+offset_right = 2942.96
+offset_bottom = 685.04
 scale = Vector2(0.343188, 0.259203)
 value = 100.0
 texture_under = ExtResource("1_kldst")
@@ -180,10 +180,10 @@ texture_over = ExtResource("2_b2bpf")
 texture_progress = ExtResource("3_7lihs")
 
 [node name="enemy name" type="Label" parent="Enemy"]
-offset_left = 1493.0
-offset_top = 268.0
-offset_right = 1819.0
-offset_bottom = 405.0
+offset_left = 563.0
+offset_top = -450.0
+offset_right = 889.0
+offset_bottom = -313.0
 theme_override_font_sizes/font_size = 100
 text = "Guess"
 
@@ -220,7 +220,18 @@ unfocusable = false
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_nb51f")
 
-[connection signal="pressed" from="Buttons/Special" to="." method="_on_special_pressed"]
-[connection signal="pressed" from="Buttons/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="Buttons/Recover" to="." method="_on_recover_pressed"]
+[node name="PlayerBorder" type="Sprite2D" parent="."]
+position = Vector2(189, 861)
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ewbju")
+
+[node name="Enemy_" parent="." instance=ExtResource("9_nnt18")]
+scale = Vector2(3.28743, 3.28743)
+
+[node name="Player_" parent="." instance=ExtResource("18_85qyi")]
+scale = Vector2(3.30538, 3.30538)
+
 [connection signal="pressed" from="Buttons/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Recover" to="." method="_on_recover_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Special" to="." method="_on_special_pressed"]
