@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq7kh8068wydt"]
+[gd_scene load_steps=16 format=3 uid="uid://cq7kh8068wydt"]
 
 [ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
 [ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dl3vw3xrl3kjn" path="res://Scenes/Popups/skill difficulty.tscn" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://bgqqre1j37jpd" path="res://Scenes/Popups/question screen.tscn" id="12_3cx6b"]
 [ext_resource type="PackedScene" uid="uid://dwrtq05bqmsyk" path="res://Scenes/Popups/game complete screen.tscn" id="14_1phco"]
+[ext_resource type="AudioStream" uid="uid://c2mh3eu6nonn" path="res://Assets/BGM/fight-bgm.mp3" id="15_nb51f"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
@@ -215,6 +216,9 @@ metadata/_edit_vertical_guides_ = [480.0, 363.0, 181.0, 598.0, 780.0]
 [node name="SkillDifficulty" parent="Popups" instance=ExtResource("11_3so38")]
 visible = false
 unfocusable = false
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_nb51f")
 
 [connection signal="pressed" from="Buttons/Special" to="." method="_on_special_pressed"]
 [connection signal="pressed" from="Buttons/Attack" to="." method="_on_attack_pressed"]

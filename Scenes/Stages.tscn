@@ -11,6 +11,27 @@ script = ExtResource("1_6xoop")
 metadata/_edit_horizontal_guides_ = [698.0, 50.0]
 metadata/_edit_vertical_guides_ = [1870.0, 960.0]
 
+[node name="WALL2" type="ColorRect" parent="."]
+offset_left = -278.0
+offset_top = -154.0
+offset_right = 2165.0
+offset_bottom = 805.0
+color = Color(0.0244639, 0.0351435, 0.131866, 1)
+
+[node name="WALL" type="ColorRect" parent="."]
+offset_left = -271.0
+offset_top = 723.0
+offset_right = 2172.0
+offset_bottom = 870.0
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="FLOOR" type="ColorRect" parent="."]
+offset_left = -254.0
+offset_top = 813.0
+offset_right = 2094.0
+offset_bottom = 1341.0
+color = Color(0.393502, 0, 0.0787315, 1)
+
 [node name="Buttons" type="Node" parent="."]
 
 [node name="back" type="TextureButton" parent="Buttons"]
@@ -37,10 +58,10 @@ texture_hover = ExtResource("7_p1yhh")
 
 [node name="Label" type="Label" parent="HBoxContainer/EasyDoor"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 287.0
-offset_right = 206.0
-offset_bottom = 354.0
+offset_left = 4.38673
+offset_top = -71.1626
+offset_right = 195.387
+offset_bottom = -4.1626
 theme_override_font_sizes/font_size = 48
 text = "Easy"
 horizontal_alignment = 1
@@ -53,10 +74,10 @@ texture_hover = ExtResource("7_p1yhh")
 
 [node name="Label" type="Label" parent="HBoxContainer/NormalDoor"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 287.0
-offset_right = 206.0
-offset_bottom = 354.0
+offset_left = 4.38673
+offset_top = -71.1626
+offset_right = 195.387
+offset_bottom = -4.1626
 theme_override_font_sizes/font_size = 48
 text = "Normal"
 horizontal_alignment = 1
@@ -69,10 +90,10 @@ texture_hover = ExtResource("7_p1yhh")
 
 [node name="Label" type="Label" parent="HBoxContainer/HardDoor"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 287.0
-offset_right = 206.0
-offset_bottom = 354.0
+offset_left = 4.38673
+offset_top = -71.1626
+offset_right = 195.387
+offset_bottom = -4.1626
 theme_override_font_sizes/font_size = 48
 text = "Hard"
 horizontal_alignment = 1

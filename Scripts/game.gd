@@ -52,6 +52,14 @@ func _ready() -> void:
 	updateDisplay()
 	#
 	Logic.duplicateQuestions()
+	
+	
+	#BGM
+	$BGM.play()
+	$BGM.stream.loop = true
+	if GlobalBgm.is_playing():
+		GlobalBgm.stop()
+
 
 func updateDisplay() -> void: 
 	$"Player/player hp bar".max_value = Global.maxPlayerHp

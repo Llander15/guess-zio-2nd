@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Guess Zio"
-run/main_scene="uid://1ivqsxloblfs"
+run/main_scene="uid://c0tluitr756oq"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cualjokng5qrh"
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
 PlayerData="*res://Scripts/Player_Data.gd"
+GlobalBgm="*res://Scenes/GlobalBgm.tscn"
 
 [display]
 
