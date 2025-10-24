@@ -26,6 +26,11 @@ func take_damage():
 	$Sprite.play("dmg")
 	await $Sprite.animation_finished
 	$Sprite.play("idle")
+	parent.gameEnd()
+	if Global.enemyHp < 1:
+		$Sprite.play("death")
+		return
+	
 	
 	parent.enemyTurn()
 	start_attack()

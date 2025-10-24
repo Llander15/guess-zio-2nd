@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://difdw6a0qowvh"]
+[gd_scene load_steps=45 format=3 uid="uid://difdw6a0qowvh"]
 
 [ext_resource type="Texture2D" uid="uid://pifglkclx4gg" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/10 - attack 1.png" id="1_5cv2o"]
 [ext_resource type="Script" uid="uid://qsmjqcbrjyo" path="res://Scripts/character/player.gd" id="1_tg0mb"]
 [ext_resource type="Texture2D" uid="uid://d1lch7yr3wjgd" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/1 - Idle.png" id="2_tg0mb"]
 [ext_resource type="Texture2D" uid="uid://b52apeq5g3ekv" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/14 - hit.png" id="3_0r5da"]
+[ext_resource type="Texture2D" uid="uid://cndg5fe80q2lt" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/15 - death.png" id="3_fgiwp"]
 [ext_resource type="Texture2D" uid="uid://l5v8ijn1if5d" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/6 - dash.png" id="3_kvnrr"]
 [ext_resource type="Texture2D" uid="uid://b4pqtifcfpccl" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/regen 1.png" id="5_twm3q"]
 [ext_resource type="Texture2D" uid="uid://dacg1rnq6ukkg" path="res://Assets/Sprites/SHADOW Series - The Blind Huntress/Sprite Sheet/regen 2.png" id="6_fgiwp"]
@@ -19,6 +20,46 @@ region = Rect2(240, 0, 240, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fgiwp"]
 atlas = ExtResource("1_5cv2o")
 region = Rect2(480, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7tds"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(0, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jj40"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(240, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuvkg"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(480, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wv53"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(720, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b4vd"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(960, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61i1p"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(1200, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbfr"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(1440, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq4cg"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(1680, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilfw8"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(1920, 0, 240, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj15x"]
+atlas = ExtResource("3_fgiwp")
+region = Rect2(2160, 0, 240, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbfix"]
 atlas = ExtResource("3_0r5da")
@@ -111,6 +152,41 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7tds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jj40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuvkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wv53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b4vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61i1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkbfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq4cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilfw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj15x")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,6 +308,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_0r5da"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_kvnrr"]
 resource_name = "attack_combo"
 tracks/0/type = "value"
@@ -271,33 +374,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(542, 521), Vector2(1342, 521), Vector2(1342, 521), Vector2(542, 521)]
-}
-
-[sub_resource type="Animation" id="Animation_0r5da"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twm3q"]

@@ -15,6 +15,7 @@ func _ready() -> void:
 	$Popups/QuestionScreen.hide()
 	$Popups/GameOverScreen.hide()
 	$Popups/GameCompleteScreen.hide()
+	$"black space".visible = false
 	
 	#getting nodes from popups
 	
@@ -221,6 +222,9 @@ func questionLoop() -> void: #func to generate question
 	if (progress == 0): #generate a question on first call/ progress = 0
 		Logic.setQuestions() # set questions depending on what subject and diff and get 5 random questions
 	elif (progress == 5): #ends 'loop' if progress = 5
+		$"black space".visible = true
+		await get_tree().create_timer(0.3).timeout  
+		$"black space".visible = false
 		progress = 0
 		if (Logic.skill == 'recover'):
 			recCalculation()
@@ -308,7 +312,7 @@ func dmgCalculation() -> void: #for Attack
 	
 	noCorrectAnswers = 0
 	updateDisplay()
-	gameEnd()
+	#gameEnd()
 	#enemyTurn()
 
 func recCalculation() -> void:
@@ -336,6 +340,9 @@ func recCalculation() -> void:
 		healMultiplyer = 3
 	
 	Global.playerHp += healToSelf * healMultiplyer
+	if Global.playerHp>Global.maxPlayerHp:
+		Global.playerHp=Global.maxPlayerHp
+	
 	
 	if(Global.playerCharge < 10):
 		Global.playerCharge += noCorrectAnswers
@@ -347,7 +354,7 @@ func recCalculation() -> void:
 	$Player_.regen()
 	
 	updateDisplay()
-	gameEnd()
+	#gameEnd()
 	#enemyTurn()
 
 func spCalculation() -> void:
@@ -369,8 +376,13 @@ func spCalculation() -> void:
 	Global.enemyHp -= damageToEnemy * 5
 	
 	noCorrectAnswers = 0
-	updateDisplay()
-	gameEnd()
+	
+	#gameEnd()
+	if (damageToEnemy > 0):
+		$Player_/AnimationPlayer.play("attack_combo")
+	else:
+		enemyTurn()
+		$Enemy_/AnimationPlayer.play("attack_combo")
 	#enemyTurn()
 
 func enemyTurn() -> void:
@@ -378,12 +390,13 @@ func enemyTurn() -> void:
 	Global.playerHp -= Global.enemyDmg
 	
 	updateDisplay()
-	gameEnd()
+	#gameEnd()
 
 
 func gameEnd() -> void:
 	if (Global.playerHp <= 0):
 		$Popups/GameOverScreen.visible = true
+		return
 	elif  (Global.enemyHp <= 0):
 		$Popups/GameCompleteScreen.visible = true
 		if (Global.stageDiff == 'easy'):
@@ -392,6 +405,7 @@ func gameEnd() -> void:
 			PlayerData.player_data["achievements"]["normalStagePassed"] = true
 		elif (Global.stageDiff == 'hard'):
 			PlayerData.player_data["achievements"]["hardStagePassed"] = true
+		return
 
 func gameEndReturnBtn() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

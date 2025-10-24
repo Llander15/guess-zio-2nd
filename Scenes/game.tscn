@@ -231,6 +231,14 @@ scale = Vector2(3.28743, 3.28743)
 [node name="Player_" parent="." instance=ExtResource("18_85qyi")]
 scale = Vector2(3.30538, 3.30538)
 
+[node name="black space" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 2001.0
+offset_bottom = 1147.0
+color = Color(1, 1, 1, 0)
+
 [connection signal="pressed" from="Buttons/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/Recover" to="." method="_on_recover_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/Attack" to="." method="_on_attack_pressed"]

@@ -28,6 +28,10 @@ func take_damage():
 	# Wait until damage animation finishes before returning to idle
 	await $Sprite.animation_finished
 	$Sprite.play("idle")
+	parent.gameEnd()
+	if Global.playerHp<1:
+		$Sprite.play("death")
+	
 
 func regen():
 	$Sprite.play("regen")

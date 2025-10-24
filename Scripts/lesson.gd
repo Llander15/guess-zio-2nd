@@ -524,7 +524,7 @@ func _on_css_1_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_2_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[1]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -568,7 +568,7 @@ func _on_css_2_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_3_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[2]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -612,7 +612,7 @@ func _on_css_3_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_4_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[3]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -656,7 +656,7 @@ func _on_css_4_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_5_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[4]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -700,7 +700,7 @@ func _on_css_5_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_6_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[5]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -744,7 +744,7 @@ func _on_css_6_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_7_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[6]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -788,7 +788,7 @@ func _on_css_7_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_8_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[7]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -832,7 +832,7 @@ func _on_css_8_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_9_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[8]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
@@ -876,7 +876,7 @@ func _on_css_9_pressed() -> void:
 	$"js scrol container/js lessons/js17/Label".add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_10_pressed() -> void:
-	current_lesson = css_lessons[0]
+	current_lesson = css_lessons[9]
 	update_lesson()
 	
 	$"html scrol container/html lessons/lesson1/Label".add_theme_color_override("font_color", Color("#000000"))
