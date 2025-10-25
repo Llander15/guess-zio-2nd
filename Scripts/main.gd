@@ -8,7 +8,7 @@ func _ready() -> void:
 		GlobalBgm.play()
 
 func _on_exit_btn_pressed() -> void:
-	$Popups/ExitGameConfirmation.popup_centered()
+	$Popups/ExitGameConfirmation.visible = true
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Stages.tscn")

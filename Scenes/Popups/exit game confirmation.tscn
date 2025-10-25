@@ -1,61 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://mb0p6smf6b7v"]
+[gd_scene load_steps=4 format=3 uid="uid://mb0p6smf6b7v"]
 
 [ext_resource type="Script" uid="uid://bx5cfa3rm3bq4" path="res://Scripts/Popups/exit_game_confirmation.gd" id="1_jmmbb"]
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="2_n8vu0"]
 
-[node name="ExitGameConfirmation" type="Popup"]
-size = Vector2i(1119, 427)
-visible = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8vu0"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 0.796078)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="ExitGameConfirmation" type="Panel"]
+offset_left = 298.0
+offset_top = 267.0
+offset_right = 1622.0
+offset_bottom = 856.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8vu0")
 script = ExtResource("1_jmmbb")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [561.0]
 
 [node name="VisibleOnScreenEnabler2D" type="Label" parent="."]
-offset_left = 302.0
-offset_top = 60.0
-offset_right = 815.0
-offset_bottom = 170.0
+offset_left = 6.0
+offset_top = -23.0
+offset_right = 1317.0
+offset_bottom = 333.0
 theme_override_font_sizes/font_size = 80
 text = "Confirm Exit?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BG" type="ColorRect" parent="."]
+visible = false
 z_index = -5
-offset_left = -40.0
-offset_top = -30.0
-offset_right = 1021.0
-offset_bottom = 410.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1162.0
+offset_bottom = 393.0
 scale = Vector2(1.13469, 1.1906)
 color = Color(0.556953, 0.556953, 0.556953, 1)
 
-[node name="Cancel" parent="." instance=ExtResource("2_n8vu0")]
-offset_left = 176.0
-offset_top = 215.0
-offset_right = 676.0
-offset_bottom = 415.0
-scale = Vector2(0.627946, 0.627946)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 168.0
+offset_top = 320.0
+offset_right = 1378.0
+offset_bottom = 502.0
+scale = Vector2(0.818182, 0.818182)
+theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="Cancel"]
+[node name="Cancel" parent="HBoxContainer" instance=ExtResource("2_n8vu0")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Cancel"]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 39.0
-offset_right = 384.0
-offset_bottom = 149.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 545.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 80
 text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Confirm" parent="." instance=ExtResource("2_n8vu0")]
-offset_left = 611.0
-offset_top = 213.0
-offset_right = 1111.0
-offset_bottom = 413.0
-scale = Vector2(0.627946, 0.627946)
+[node name="Confirm" parent="HBoxContainer" instance=ExtResource("2_n8vu0")]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Confirm"]
+[node name="Label" type="Label" parent="HBoxContainer/Confirm"]
 layout_mode = 0
-offset_left = 98.7346
-offset_top = 39.8124
-offset_right = 411.735
-offset_bottom = 149.812
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 545.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 80
 text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
-[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

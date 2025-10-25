@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://db0d6l0kcyalg"]
+[gd_scene load_steps=8 format=3 uid="uid://db0d6l0kcyalg"]
 
 [ext_resource type="Texture2D" uid="uid://b73h68dkhcrl0" path="res://Assets/BG/Main BG.jpg" id="1_4hxq3"]
 [ext_resource type="Script" uid="uid://11v416d3d2br" path="res://Scripts/settings.gd" id="1_flfri"]
+[ext_resource type="Texture2D" uid="uid://bvgcoso0efywp" path="res://Assets/Latest UI/setting boarder and pop up.png" id="3_mjqtt"]
+[ext_resource type="Texture2D" uid="uid://dyxt1nqjiv0an" path="res://Assets/BG/background.png" id="3_ppjuv"]
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="3_yrknh"]
 [ext_resource type="PackedScene" uid="uid://chue0j81p1gtu" path="res://Scenes/Popups/confirm delete.tscn" id="4_w1nw0"]
 
@@ -10,13 +12,25 @@
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_flfri")
 metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [540.0]
 
 [node name="MainBg" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 489)
 scale = Vector2(2.60982, 2.60982)
 texture = ExtResource("1_4hxq3")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(990, 540)
+texture = ExtResource("3_ppjuv")
+
+[node name="SettingBoarderAndPopUp" type="Sprite2D" parent="."]
+position = Vector2(960, 541)
+scale = Vector2(0.962143, 1.09252)
+texture = ExtResource("3_mjqtt")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 60.0
 offset_top = 73.0
 offset_right = 1860.0
@@ -24,10 +38,11 @@ offset_bottom = 994.0
 color = Color(0, 0, 0, 0.694118)
 
 [node name="Volume Slider" type="HSlider" parent="."]
-offset_left = 122.0
+offset_left = 295.0
 offset_top = 259.0
-offset_right = 1798.0
+offset_right = 1645.0
 offset_bottom = 326.0
+scale = Vector2(0.986435, 1.93299)
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -49,34 +64,34 @@ offset_bottom = 251.0
 theme_override_font_sizes/font_size = 64
 
 [node name="Back Btn" parent="." instance=ExtResource("3_yrknh")]
-offset_left = 840.0
+offset_left = 826.0
 offset_top = 721.0
-offset_right = 1340.0
+offset_right = 1381.0
 offset_bottom = 921.0
 
 [node name="Label" type="Label" parent="Back Btn"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 31.0
-offset_right = 444.0
-offset_bottom = 162.0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 546.0
+offset_bottom = 171.0
 theme_override_font_sizes/font_size = 64
 text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Delete Player Data" parent="." instance=ExtResource("3_yrknh")]
-offset_left = 840.0
+offset_left = 827.0
 offset_top = 557.0
-offset_right = 1340.0
+offset_right = 1382.0
 offset_bottom = 757.0
 
 [node name="Label2" type="Label" parent="Delete Player Data"]
 layout_mode = 0
-offset_left = 62.5163
-offset_top = 39.5936
-offset_right = 437.516
-offset_bottom = 156.594
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 546.0
+offset_bottom = 167.0
 theme_override_font_sizes/font_size = 48
 text = "Delete"
 horizontal_alignment = 1
@@ -94,8 +109,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ConfirmDelete" parent="." instance=ExtResource("4_w1nw0")]
-size = Vector2i(1160, 490)
-visible = false
+offset_left = 380.0
+offset_top = 296.0
+offset_right = 1540.0
+offset_bottom = 786.0
 theme = SubResource("Theme_w1nw0")
 
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]

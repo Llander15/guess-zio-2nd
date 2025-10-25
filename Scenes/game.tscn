@@ -1,28 +1,45 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq7kh8068wydt"]
+[gd_scene load_steps=20 format=3 uid="uid://cq7kh8068wydt"]
 
 [ext_resource type="Script" uid="uid://c5qa6wyq04tp5" path="res://Scripts/game.gd" id="1_2irst"]
-[ext_resource type="Texture2D" uid="uid://6dndbqtukk27" path="res://Assets/UI/hp behind.png" id="1_kldst"]
-[ext_resource type="Texture2D" uid="uid://cl1wt4lbrhoc8" path="res://Assets/UI/hp boarder.png" id="2_b2bpf"]
-[ext_resource type="Texture2D" uid="uid://b0r2cchernwcc" path="res://Assets/UI/hp blood.png" id="3_7lihs"]
-[ext_resource type="Texture2D" uid="uid://cju8exd055s0x" path="res://Assets/UI/exit.png" id="3_fgofq"]
-[ext_resource type="Texture2D" uid="uid://byrvswlc3fpm5" path="res://Assets/UI/exit hover.png" id="4_2irst"]
-[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="4_b2bpf"]
-[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="5_7lihs"]
+[ext_resource type="Texture2D" uid="uid://bdvb3o4pus2h" path="res://Assets/Latest UI/pause button finals.png" id="3_iivbl"]
+[ext_resource type="Texture2D" uid="uid://b3kboe204ux8e" path="res://Assets/Latest UI/pause button hover.png" id="4_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://bo0ikgs4snrj5" path="res://Assets/Latest UI/btn unselected.png" id="5_iivbl"]
+[ext_resource type="Texture2D" uid="uid://wgnftaags2oo" path="res://Assets/Latest UI/btn selected.png" id="6_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://dpeyiqobx84gm" path="res://Scenes/Popups/game pause.tscn" id="9_bf53h"]
 [ext_resource type="PackedScene" uid="uid://kn3ww41sn366" path="res://Scenes/characters/enemy1.tscn" id="9_nnt18"]
 [ext_resource type="PackedScene" uid="uid://n1wxeae77boc" path="res://Scenes/Popups/game over screen.tscn" id="9_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://cj6cjwh14u1ad" path="res://Assets/Latest UI/hp under health.png" id="10_7t8sx"]
 [ext_resource type="PackedScene" uid="uid://daf2yrxovwj0l" path="res://Scenes/Popups/skill subject.tscn" id="10_71axn"]
 [ext_resource type="PackedScene" uid="uid://dl3vw3xrl3kjn" path="res://Scenes/Popups/skill difficulty.tscn" id="11_3so38"]
+[ext_resource type="Texture2D" uid="uid://g3l3svaanap5" path="res://Assets/Latest UI/hp ui.png" id="11_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://bgqqre1j37jpd" path="res://Scenes/Popups/question screen.tscn" id="12_3cx6b"]
+[ext_resource type="Texture2D" uid="uid://uhx1mxrfhs2j" path="res://Assets/Latest UI/hp health.png" id="12_vm72l"]
 [ext_resource type="PackedScene" uid="uid://dwrtq05bqmsyk" path="res://Scenes/Popups/game complete screen.tscn" id="14_1phco"]
 [ext_resource type="AudioStream" uid="uid://c2mh3eu6nonn" path="res://Assets/BGM/fight-bgm.mp3" id="15_nb51f"]
 [ext_resource type="Texture2D" uid="uid://l2vms4h5bbgi" path="res://Assets/UI/player border.png" id="17_ewbju"]
 [ext_resource type="PackedScene" uid="uid://difdw6a0qowvh" path="res://Scenes/characters/player.tscn" id="18_85qyi"]
+[ext_resource type="Texture2D" uid="uid://febolu87v3ge" path="res://Assets/BG/in game background.png" id="19_iivbl"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
 metadata/_edit_vertical_guides_ = [960.0, 50.0, 561.0, 280.0, 1870.0, 1443.0, 1380.0, 540.0]
-metadata/_edit_horizontal_guides_ = [580.0, 956.0, 50.0]
+metadata/_edit_horizontal_guides_ = [580.0, 956.0, 50.0, 1030.0, 766.0]
+
+[node name="BG" type="Node" parent="."]
+
+[node name="InGameBackground" type="Sprite2D" parent="BG"]
+z_index = -10
+position = Vector2(930, 540)
+texture = ExtResource("19_iivbl")
+
+[node name="BG fill" type="ColorRect" parent="BG"]
+z_index = -15
+offset_left = -67.0
+offset_top = 774.0
+offset_right = 1710.0
+offset_bottom = 884.0
+scale = Vector2(1.15035, 3.14437)
+color = Color(0, 0, 0, 1)
 
 [node name="StageDiff" type="Label" parent="."]
 visible = false
@@ -62,75 +79,90 @@ text = "Subject Difficulty Checker"
 [node name="Buttons" type="Node" parent="."]
 
 [node name="Pause" type="TextureButton" parent="Buttons"]
-offset_left = 1780.0
-offset_top = 50.0
-offset_right = 1870.0
-offset_bottom = 250.0
-texture_normal = ExtResource("3_fgofq")
-texture_pressed = ExtResource("3_fgofq")
-texture_hover = ExtResource("4_2irst")
+anchors_preset = -1
+anchor_top = -0.0462963
+anchor_right = 0.0572917
+anchor_bottom = -0.0462963
+offset_left = 1806.0
+offset_top = 100.0
+offset_right = 1896.0
+offset_bottom = 300.0
+scale = Vector2(0.425402, 0.425402)
+texture_normal = ExtResource("3_iivbl")
+texture_pressed = ExtResource("3_iivbl")
+texture_hover = ExtResource("4_7nbq1")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
-offset_left = 506.0
-offset_top = 785.0
-offset_right = 2106.0
-offset_bottom = 985.0
-scale = Vector2(0.852358, 0.852358)
+offset_left = 479.0
+offset_top = 815.0
+offset_right = 2244.0
+offset_bottom = 1015.0
+scale = Vector2(0.794154, 0.794154)
 theme_override_constants/separation = 50
 
 [node name="Recover" type="TextureButton" parent="Buttons/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_b2bpf")
-texture_pressed = ExtResource("4_b2bpf")
-texture_hover = ExtResource("5_7lihs")
+texture_normal = ExtResource("5_iivbl")
+texture_pressed = ExtResource("5_iivbl")
+texture_hover = ExtResource("6_7nbq1")
 
 [node name="Label" type="Label" parent="Buttons/HBoxContainer/Recover"]
 layout_mode = 0
-offset_left = 122.327
-offset_top = 48.3933
-offset_right = 369.327
-offset_bottom = 136.393
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 540.0
+offset_bottom = 168.0
 theme_override_font_sizes/font_size = 64
 text = "Recover"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Attack" type="TextureButton" parent="Buttons/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_b2bpf")
-texture_pressed = ExtResource("4_b2bpf")
-texture_hover = ExtResource("5_7lihs")
+texture_normal = ExtResource("5_iivbl")
+texture_pressed = ExtResource("5_iivbl")
+texture_hover = ExtResource("6_7nbq1")
 
 [node name="Label" type="Label" parent="Buttons/HBoxContainer/Attack"]
 layout_mode = 0
-offset_left = 155.934
-offset_top = 47.049
-offset_right = 353.934
-offset_bottom = 135.049
+offset_left = 17.0
+offset_top = 13.0
+offset_right = 542.0
+offset_bottom = 167.0
 theme_override_font_sizes/font_size = 64
 text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Special" type="TextureButton" parent="Buttons/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_b2bpf")
-texture_pressed = ExtResource("4_b2bpf")
-texture_hover = ExtResource("5_7lihs")
+texture_normal = ExtResource("5_iivbl")
+texture_pressed = ExtResource("5_iivbl")
+texture_hover = ExtResource("6_7nbq1")
 
 [node name="Label" type="Label" parent="Buttons/HBoxContainer/Special"]
 layout_mode = 0
-offset_left = 143.835
-offset_top = 49.7375
-offset_right = 359.835
-offset_bottom = 137.737
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 541.0
+offset_bottom = 171.0
 theme_override_font_sizes/font_size = 64
 text = "Special"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SP Charge" type="Label" parent="Buttons/HBoxContainer/Special"]
 z_index = 5
 layout_mode = 0
-offset_left = -0.696071
-offset_top = -32.0
-offset_right = 499.304
-offset_bottom = 13.0
+offset_left = 15.0
+offset_top = -42.0
+offset_right = 541.0
+offset_bottom = 14.0
+tooltip_text = "Special uses 5 charges to use.
+You get a charge for every 
+correct answers from recover and attack."
+mouse_filter = 0
 theme_override_font_sizes/font_size = 32
 text = "Charge: 0 / 10"
 horizontal_alignment = 1
@@ -143,15 +175,16 @@ anchor_left = -0.088
 anchor_top = -0.263
 anchor_right = -0.088
 anchor_bottom = -0.263
-offset_left = 218.96
-offset_top = 891.04
-offset_right = 1868.96
-offset_bottom = 1241.04
-scale = Vector2(0.303835, 0.18137)
+offset_left = 529.96
+offset_top = 1319.04
+offset_right = 1129.96
+offset_bottom = 1409.04
+rotation = 4.71238
+scale = Vector2(0.456663, 0.548697)
 value = 100.0
-texture_under = ExtResource("1_kldst")
-texture_over = ExtResource("2_b2bpf")
-texture_progress = ExtResource("3_7lihs")
+texture_under = ExtResource("10_7t8sx")
+texture_over = ExtResource("11_mg4q0")
+texture_progress = ExtResource("12_vm72l")
 
 [node name="player name" type="Label" parent="Player"]
 offset_left = 202.0
@@ -171,13 +204,13 @@ anchor_right = -0.088
 anchor_bottom = -0.263
 offset_left = 1292.96
 offset_top = 335.04
-offset_right = 2942.96
-offset_bottom = 685.04
-scale = Vector2(0.343188, 0.259203)
+offset_right = 1892.96
+offset_bottom = 425.04
+scale = Vector2(0.999326, 0.754771)
 value = 100.0
-texture_under = ExtResource("1_kldst")
-texture_over = ExtResource("2_b2bpf")
-texture_progress = ExtResource("3_7lihs")
+texture_under = ExtResource("10_7t8sx")
+texture_over = ExtResource("11_mg4q0")
+texture_progress = ExtResource("12_vm72l")
 
 [node name="enemy name" type="Label" parent="Enemy"]
 offset_left = 563.0
@@ -221,7 +254,7 @@ unfocusable = false
 stream = ExtResource("15_nb51f")
 
 [node name="PlayerBorder" type="Sprite2D" parent="."]
-position = Vector2(189, 861)
+position = Vector2(189, 935)
 scale = Vector2(2.95, 2.95)
 texture = ExtResource("17_ewbju")
 
@@ -232,6 +265,7 @@ scale = Vector2(3.28743, 3.28743)
 scale = Vector2(3.30538, 3.30538)
 
 [node name="black space" type="ColorRect" parent="."]
+visible = false
 z_index = 10
 offset_left = -32.0
 offset_top = -34.0

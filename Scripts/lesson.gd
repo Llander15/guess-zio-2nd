@@ -1701,7 +1701,7 @@ var html_lessons = [
 		'title': 'Images',
 		'description': 
 		'<img>: The <img> tag is used to display images on a web page.
-		src: It tells the browser where to find the image you want to display
+		src: It tells the browser where to find the image you want to display.
 		
 		Ex.
 		<img src="photo.jpg" alt="Sample Photo">'
@@ -1709,8 +1709,7 @@ var html_lessons = [
 	{ #lesson 4 Forms & Inputs
 		'title': 'Forms & Inputs',
 		'description': 
-		'A Form is used to collect user input. Forms are created using the <form> tag and usually
-		include input fields, checkboxes, radio buttons, drop-downs, and a submit button.
+		'A Form is used to collect user input. Forms are created using the <form> tag and usually include input fields, checkboxes, radio buttons, drop-downs, and a submit button.
 		
 		Example of forms:
 		<input type="text" placeholder="Enter your name">
@@ -1738,8 +1737,7 @@ var html_lessons = [
 	{ #lesson 6 Tables
 		'title': 'Tables',
 		'description': 
-		'Tables let you arrange data in rows and columns it is also useful for organizing structured
-		data like schedules, grades, and reports.
+		'Tables let you arrange data in rows and columns it is also useful for organizing structured data like schedules, grades, and reports.
 		The main tags are:
 		<table> → Creates a table
 		<tr> → Table row
@@ -1771,8 +1769,7 @@ var html_lessons = [
 		'title': 'Semantic Tags',
 		'description': 
 		'What are Semantic Tags?
-		Semantic tags add meaning to your webpage. They tell both browsers and developers what
-		the content represents.
+		Semantic tags add meaning to your webpage. They tell both browsers and developers what the content represents.
 		
 		Example of Semantic Tags are:
 		1) <header> → Top section
@@ -1885,37 +1882,29 @@ var css_lessons = [
 		'Box Model is important for designing clean and well structured webpages.
 		
 		Parts of the Box Model:
-		1) Content - This is where the actual text, image, or other content of the
-		element appears.
+		1) Content - This is where the actual text, image, or other content of the element appears.
 		Example: The text inside a <p> tag.
 		
-		2) Padding - The space between the content and the border. It creates inner
-		spacing and pushes the content away from the border.
+		2) Padding - The space between the content and the border. It creates inner spacing and pushes the content away from the border.
 		Example: Adding padding: 10px; gives space inside the element.
 		
-		3) Border - The line that wraps around the padding and content. Borders can
-		have styles (solid, dashed, dotted), thickness, and colors.
+		3) Border - The line that wraps around the padding and content. Borders can have styles (solid, dashed, dotted), thickness, and colors.
 		Example: border: 2px solid black;
 		
-		4) Margin - The space outside the border, separating the element from other
-		elements.
+		4) Margin - The space outside the border, separating the element from other elements.
 		Example: margin: 20px; pushes the element away from nearby elements.'
 	},
 	{ #lesson 8 Gradients
 		'title': 'Gradients',
 		'description':
-		'It is a smooth transition between two or more colors. Instead of using
-		a single solid color, gradients let you blend multiple colors together,
-		making backgrounds more visually appealing.
+		'It is a smooth transition between two or more colors. Instead of using a single solid color, gradients let you blend multiple colors together, making backgrounds more visually appealing.
 		
 		Types of Gradients:
-		1) Linear Gradient - Colors blend in a straight line (top to bottom, left to right,
-		or at an angle).
+		1) Linear Gradient - Colors blend in a straight line (top to bottom, left to right, or at an angle).
 		Example of Linear Gradient:
 		• background-image: linear-gradient(to right, red, yellow);
 		
-		2) Radial Gradient - Colors spread out from a center point in a circular or
-		elliptical shape.
+		2) Radial Gradient - Colors spread out from a center point in a circular or elliptical shape.
 		Example of Radial Gradient:
 		• background-image: conic-gradient(red, yellow, green, blue);'
 	},
@@ -1934,8 +1923,7 @@ var css_lessons = [
 	{ #lesson 10 Pseudo-elements
 		'title': 'Pseudo-elements',
 		'description':
-		'Pseudo-elements - A pseudo-element lets you style specific parts of an
-		element. It allows you to add or style content without needing extra HTML.
+		'Pseudo-elements - A pseudo-element lets you style specific parts of an element. It allows you to add or style content without needing extra HTML.
 		Ex.
 		::first-letter → Styles the first letter of a text.
 		
@@ -1949,8 +1937,7 @@ var js_lessons = [
 	{ #lesson 1 JavaScript
 		'title': 'JavaScript',
 		'description':
-		'JavaScript is a scripting language used to add interactivity to websites. It runs in the
-		browser and lets you make pages dynamic.'
+		'JavaScript is a scripting language used to add interactivity to websites. It runs in the browser and lets you make pages dynamic.'
 	},
 	{ #lesson 2 Variables in JavaScript
 		'title': 'Variables in JavaScript',

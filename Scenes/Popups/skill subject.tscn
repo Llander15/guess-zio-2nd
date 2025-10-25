@@ -3,23 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="1_3vxwv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vxwv"]
+bg_color = Color(0.252028, 0.252028, 0.252028, 0.796078)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [node name="SkillSubject" type="PopupPanel"]
-size = Vector2i(1110, 200)
+size = Vector2i(1250, 200)
 visible = true
 wrap_controls = false
 unfocusable = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_3vxwv")
-metadata/_edit_horizontal_guides_ = [200.0, 199.0]
-metadata/_edit_vertical_guides_ = [480.0, 363.0, 181.0, 598.0, 780.0, 1110.0]
+metadata/_edit_horizontal_guides_ = [200.0, 199.0, 37.0, 144.0, 100.0]
+metadata/_edit_vertical_guides_ = [480.0, 363.0, 181.0, 625.0, 780.0, 1110.0, 1183.0, 43.0]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1700.0
-offset_bottom = 300.0
+offset_right = 1250.0
+offset_bottom = 200.0
 scale = Vector2(0.651337, 0.651337)
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
@@ -35,33 +36,39 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HTML"]
 layout_mode = 0
-offset_left = 140.744
-offset_top = 53.3121
-offset_right = 353.744
-offset_bottom = 149.312
-theme_override_font_sizes/font_size = 70
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 543.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 64
 text = "HTML "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CSS" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_3vxwv")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/CSS"]
 layout_mode = 0
-offset_left = 189.791
-offset_top = 53.3121
-offset_right = 310.791
-offset_bottom = 149.312
-theme_override_font_sizes/font_size = 70
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 541.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 64
 text = "CSS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Javascript" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_3vxwv")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Javascript"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 48.0
-offset_right = 420.0
-offset_bottom = 144.0
-theme_override_font_sizes/font_size = 70
+offset_left = 15.8372
+offset_top = 11.4121
+offset_right = 542.837
+offset_bottom = 174.412
+theme_override_font_sizes/font_size = 58
 text = "JavaScript"
+horizontal_alignment = 1
+vertical_alignment = 1

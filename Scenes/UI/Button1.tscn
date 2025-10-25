@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7um8egd0m4g5"]
 
-[ext_resource type="Texture2D" uid="uid://beh8jr72v7dcl" path="res://Assets/UI/f btn 2.png" id="1_f06j7"]
-[ext_resource type="Texture2D" uid="uid://dovykbyxb4vy" path="res://Assets/UI/f btn 1.png" id="2_h261h"]
+[ext_resource type="Texture2D" uid="uid://bo0ikgs4snrj5" path="res://Assets/Latest UI/btn unselected.png" id="1_f06j7"]
+[ext_resource type="Texture2D" uid="uid://wgnftaags2oo" path="res://Assets/Latest UI/btn selected.png" id="2_h261h"]
 
 [node name="Button1" type="TextureButton"]
 scale = Vector2(0.479875, 0.479875)

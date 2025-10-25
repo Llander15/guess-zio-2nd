@@ -26,3 +26,7 @@ GlobalBgm="*res://Scenes/GlobalBgm.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
+
+[gui]
+
+timers/tooltip_delay_sec=0.01

@@ -1,4 +1,4 @@
-extends Popup
+extends Panel
 
 func _on_cancel_pressed() -> void:
 	self.hide()
