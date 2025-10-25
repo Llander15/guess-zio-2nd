@@ -60,6 +60,8 @@ func load_player_data():
 			if parsed:
 				#assign parsed as player_data
 				player_data = parsed
+	else:
+		save_player_data()
 	
 	#set volume base on loaded data
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), player_data["settings"]["volume"])

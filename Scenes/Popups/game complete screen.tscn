@@ -37,17 +37,18 @@ text = "Game Complete"
 
 [node name="Return btn" parent="." instance=ExtResource("1_dlng4")]
 layout_mode = 0
-offset_left = 306.0
+offset_left = 286.0
 offset_top = 319.0
-offset_right = 806.0
+offset_right = 841.0
 offset_bottom = 519.0
 scale = Vector2(0.699819, 0.699819)
 
 [node name="Label" type="Label" parent="Return btn"]
 layout_mode = 0
-offset_left = 145.871
-offset_top = 52.0969
-offset_right = 357.871
-offset_bottom = 140.097
+offset_left = 171.0
+offset_top = 11.0
+offset_right = 383.0
+offset_bottom = 171.0
 theme_override_font_sizes/font_size = 64
 text = "Return"
+vertical_alignment = 1

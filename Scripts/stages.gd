@@ -1,7 +1,7 @@
 extends Node2D
-"res://Scripts/Global.gd"
 
 func _ready() -> void:
+	$HBoxContainer/EasyDoor.disabled = false
 	if (PlayerData.player_data["achievements"]["easyStagePassed"] == true):
 		$HBoxContainer/NormalDoor.disabled = false
 	else:
