@@ -99,16 +99,17 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Delete Player Data"]
 layout_mode = 0
-offset_left = 20.8386
-offset_top = -133.368
-offset_right = 483.839
-offset_bottom = 1.63179
+offset_left = 13.0
+offset_top = -133.0
+offset_right = 544.0
+offset_bottom = 2.0
 theme_override_font_sizes/font_size = 48
 text = "Delete Player Data? "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ConfirmDelete" parent="." instance=ExtResource("4_w1nw0")]
+visible = false
 offset_left = 380.0
 offset_top = 296.0
 offset_right = 1540.0

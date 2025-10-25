@@ -2,7 +2,7 @@ extends Node
 
 var player_data = {
 	"settings": {
-		"volume": 0 #min value -80, masx value 0, since we're using dB as value
+		"volume": 1 
 	},
 	"achievements": {
 		"easyStagePassed": false,
@@ -11,11 +11,11 @@ var player_data = {
 	}
 }
 func delete_player_data():
-	var save_path = "user://player_data.json"
+	var save_path = "user://ever_after_player_data.json"
 	var dir = DirAccess.open("user://")
 
-	if dir.file_exists("player_data.json"):
-		var error = dir.remove("player_data.json")
+	if dir.file_exists("ever_after_player_data.json"):
+		var error = dir.remove("ever_after_player_data.json")
 		if error == OK:
 			print("Player data deleted.")
 		else:
@@ -29,7 +29,7 @@ func delete_player_data():
 
 func save_player_data():
 	#file path
-	var save_path = "user://player_data.json"
+	var save_path = "user://ever_after_player_data.json"
 	
 	#tries to open file for wiriting
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -43,7 +43,7 @@ func save_player_data():
 
 func load_player_data():
 	#file path
-	var save_path = "user://player_data.json"
+	var save_path = "user://ever_after_player_data.json"
 	
 	#check if file exists before trying to open it 
 	if FileAccess.file_exists(save_path):

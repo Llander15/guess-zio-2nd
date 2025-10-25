@@ -13,6 +13,7 @@ config_version=5
 config/name="Guess Zio"
 run/main_scene="uid://c0tluitr756oq"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://ie31vxyk5vx1"
 config/icon="uid://cualjokng5qrh"
 
 [autoload]
