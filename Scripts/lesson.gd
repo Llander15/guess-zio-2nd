@@ -10,27 +10,27 @@ func _on_html_pressed() -> void:
 	$"css scrol container".visible = false
 	$"js scrol container".visible = false
 	
-	$HTML/Label.add_theme_color_override("font_color", Color("#ffffff"))
-	$CSS/Label.add_theme_color_override("font_color", Color("#000000"))
-	$JS/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/HTML/Label.add_theme_color_override("font_color", Color("#ffffff"))
+	$Subject/CSS/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/JS/Label.add_theme_color_override("font_color", Color("#000000"))
 
 func _on_css_pressed() -> void:
 	$"html scrol container".visible = false
 	$"css scrol container".visible = true
 	$"js scrol container".visible = false
 	
-	$HTML/Label.add_theme_color_override("font_color", Color("#000000"))
-	$CSS/Label.add_theme_color_override("font_color", Color("#ffffff"))
-	$JS/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/HTML/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/CSS/Label.add_theme_color_override("font_color", Color("#ffffff"))
+	$Subject/JS/Label.add_theme_color_override("font_color", Color("#000000"))
 
 func _on_js_pressed() -> void:
 	$"html scrol container".visible = false
 	$"css scrol container".visible = false
 	$"js scrol container".visible = true
 	
-	$HTML/Label.add_theme_color_override("font_color", Color("#000000"))
-	$CSS/Label.add_theme_color_override("font_color", Color("#000000"))
-	$JS/Label.add_theme_color_override("font_color", Color("#ffffff"))
+	$Subject/HTML/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/CSS/Label.add_theme_color_override("font_color", Color("#000000"))
+	$Subject/JS/Label.add_theme_color_override("font_color", Color("#ffffff"))
 
 var current_lesson
 

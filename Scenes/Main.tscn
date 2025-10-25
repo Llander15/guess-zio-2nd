@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bfkgcbsy8wv3f" path="res://Scripts/main.gd" id="1_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://dyxt1nqjiv0an" path="res://Assets/BG/background.png" id="2_50glp"]
-[ext_resource type="Texture2D" uid="uid://cju8exd055s0x" path="res://Assets/UI/exit.png" id="3_kln2b"]
 [ext_resource type="Texture2D" uid="uid://cuc2jf4bg2wa8" path="res://Assets/logo.png" id="3_vy5pj"]
-[ext_resource type="Texture2D" uid="uid://byrvswlc3fpm5" path="res://Assets/UI/exit hover.png" id="5_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://tpts1bnkjjhw" path="res://Assets/Latest UI/esc button unselected.png" id="4_50glp"]
+[ext_resource type="Texture2D" uid="uid://c0h883f1illdv" path="res://Assets/Latest UI/esc button finals.png" id="5_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="6_jw32o"]
 [ext_resource type="Texture2D" uid="uid://b73h68dkhcrl0" path="res://Assets/BG/Main BG.jpg" id="6_v1gob"]
 [ext_resource type="PackedScene" uid="uid://mb0p6smf6b7v" path="res://Scenes/Popups/exit game confirmation.tscn" id="7_jw32o"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
-metadata/_edit_horizontal_guides_ = [50.0, 1030.0, 980.0, 780.0, 755.0, 555.0, 530.0]
-metadata/_edit_vertical_guides_ = [1870.0, 50.0, 150.0]
+metadata/_edit_horizontal_guides_ = [50.0, 1030.0, 980.0, 780.0, 755.0, 555.0, 530.0, 131.0]
+metadata/_edit_vertical_guides_ = [1870.0, 50.0, 150.0, 241.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(990, 543)
@@ -26,13 +26,14 @@ texture = ExtResource("3_vy5pj")
 [node name="Buttons" type="Node" parent="."]
 
 [node name="Exit btn" type="TextureButton" parent="Buttons"]
-offset_left = 150.0
-offset_top = 50.0
-offset_right = 240.0
-offset_bottom = 130.0
-texture_normal = ExtResource("3_kln2b")
-texture_pressed = ExtResource("3_kln2b")
-texture_hover = ExtResource("5_pbw6q")
+offset_left = 120.0
+offset_top = 44.0
+offset_right = 320.0
+offset_bottom = 194.0
+scale = Vector2(0.712529, 0.628131)
+texture_normal = ExtResource("4_50glp")
+texture_pressed = ExtResource("4_50glp")
+texture_hover = ExtResource("5_vy5pj")
 
 [node name="Start" parent="Buttons" instance=ExtResource("6_jw32o")]
 offset_left = 150.0

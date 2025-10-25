@@ -22,7 +22,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2irst")
-metadata/_edit_vertical_guides_ = [960.0, 50.0, 561.0, 280.0, 1870.0, 1443.0, 1380.0, 540.0]
+metadata/_edit_vertical_guides_ = [960.0, 50.0, 561.0, 280.0, 1870.0, 1443.0, 1380.0, 540.0, 1661.0]
 metadata/_edit_horizontal_guides_ = [580.0, 956.0, 50.0, 1030.0, 766.0]
 
 [node name="BG" type="Node" parent="."]
@@ -155,9 +155,9 @@ vertical_alignment = 1
 [node name="SP Charge" type="Label" parent="Buttons/HBoxContainer/Special"]
 z_index = 5
 layout_mode = 0
-offset_left = 15.0
+offset_left = 172.603
 offset_top = -42.0
-offset_right = 541.0
+offset_right = 383.603
 offset_bottom = 14.0
 tooltip_text = "Special uses 5 charges to use.
 You get a charge for every 

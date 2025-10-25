@@ -1,23 +1,52 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2gdafjecp1tq"]
+[gd_scene load_steps=9 format=3 uid="uid://d2gdafjecp1tq"]
 
 [ext_resource type="Script" uid="uid://beulsn2a7gn72" path="res://Scripts/lesson.gd" id="1_gm4tm"]
 [ext_resource type="PackedScene" uid="uid://c7um8egd0m4g5" path="res://Scenes/UI/Button1.tscn" id="2_nvsig"]
 [ext_resource type="Texture2D" uid="uid://nbody6r0bqrn" path="res://Assets/BG/lesson background.png" id="2_qykhp"]
-[ext_resource type="Texture2D" uid="uid://cju8exd055s0x" path="res://Assets/UI/exit.png" id="3_qykhp"]
-[ext_resource type="Texture2D" uid="uid://byrvswlc3fpm5" path="res://Assets/UI/exit hover.png" id="4_f2cop"]
+[ext_resource type="Texture2D" uid="uid://tpts1bnkjjhw" path="res://Assets/Latest UI/esc button unselected.png" id="4_qykhp"]
+[ext_resource type="Texture2D" uid="uid://c0h883f1illdv" path="res://Assets/Latest UI/esc button finals.png" id="5_f2cop"]
 [ext_resource type="Texture2D" uid="uid://uq8nmsa628iw" path="res://Assets/BG/lesson-bg.png" id="5_nvsig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2cop"]
+bg_color = Color(1, 1, 1, 0.231373)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qykhp"]
+bg_color = Color(1, 1, 1, 0.231373)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Lesson" type="Node2D"]
 script = ExtResource("1_gm4tm")
-metadata/_edit_horizontal_guides_ = [83.0, 211.0, 1017.0]
-metadata/_edit_vertical_guides_ = [534.0, 614.0]
+metadata/_edit_horizontal_guides_ = [83.0, 1032.0, 120.0, 165.0, 201.0, 300.0]
+metadata/_edit_vertical_guides_ = [598.0, 1847.0, 1757.0, 163.0, 534.0, 148.0, 1702.0]
 
 [node name="LessonBackground" type="Sprite2D" parent="."]
 position = Vector2(960.5, 540)
 scale = Vector2(0.969192, 1)
 texture = ExtResource("2_qykhp")
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = 598.0
+offset_top = 165.0
+offset_right = 1702.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2cop")
+
+[node name="panel" type="Panel" parent="."]
+offset_left = 148.0
+offset_top = 201.0
+offset_right = 534.0
+offset_bottom = 1032.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qykhp")
+
 [node name="html scrol container" type="ScrollContainer" parent="."]
+visible = false
 offset_left = 155.0
 offset_top = 211.0
 offset_right = 789.0
@@ -177,6 +206,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="css scrol container" type="ScrollContainer" parent="."]
+visible = false
 offset_left = 155.0
 offset_top = 211.0
 offset_right = 789.0
@@ -641,67 +671,15 @@ offset_top = 124.0
 offset_right = 1326.0
 offset_bottom = 130.0
 
-[node name="HTML" parent="." instance=ExtResource("2_nvsig")]
-offset_left = 597.0
-offset_top = 166.0
-offset_right = 1152.0
-offset_bottom = 366.0
-
-[node name="Label" type="Label" parent="HTML"]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 38.0
-offset_right = 442.0
-offset_bottom = 161.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
-text = "HTML"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CSS" parent="." instance=ExtResource("2_nvsig")]
-offset_left = 959.0
-offset_top = 166.0
-offset_right = 1514.0
-offset_bottom = 366.0
-
-[node name="Label" type="Label" parent="CSS"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 42.0
-offset_right = 442.0
-offset_bottom = 155.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "CSS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JS" parent="." instance=ExtResource("2_nvsig")]
-offset_left = 1300.0
-offset_top = 166.0
-offset_right = 1855.0
-offset_bottom = 366.0
-
-[node name="Label" type="Label" parent="JS"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 44.0
-offset_right = 448.0
-offset_bottom = 152.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "JavaScript"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Back btn" type="TextureButton" parent="."]
-offset_left = 1757.0
-offset_top = 120.0
-offset_right = 1847.0
-offset_bottom = 200.0
-texture_normal = ExtResource("3_qykhp")
-texture_hover = ExtResource("4_f2cop")
+offset_left = 1722.0
+offset_top = 114.0
+offset_right = 1922.0
+offset_bottom = 264.0
+scale = Vector2(0.745427, 0.629395)
+texture_normal = ExtResource("4_qykhp")
+texture_pressed = ExtResource("4_qykhp")
+texture_hover = ExtResource("5_f2cop")
 
 [node name="Lesson-bg" type="Sprite2D" parent="."]
 visible = false
@@ -709,6 +687,59 @@ z_index = -10
 position = Vector2(1022.87, 584.5)
 scale = Vector2(1.52214, 1.52214)
 texture = ExtResource("5_nvsig")
+
+[node name="Subject" type="HBoxContainer" parent="."]
+offset_left = 613.0
+offset_top = 180.0
+offset_right = 2478.0
+offset_bottom = 362.0
+scale = Vector2(0.576037, 0.576037)
+theme_override_constants/separation = 100
+
+[node name="HTML" parent="Subject" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Subject/HTML"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 545.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "HTML"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CSS" parent="Subject" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Subject/CSS"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 543.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "CSS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JS" parent="Subject" instance=ExtResource("2_nvsig")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Subject/JS"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 545.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "JavaScript"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="html scrol container/html lessons/lesson1" to="." method="_on_lesson_1_pressed"]
 [connection signal="pressed" from="html scrol container/html lessons/lesson2" to="." method="_on_lesson_2_pressed"]
@@ -747,7 +778,7 @@ texture = ExtResource("5_nvsig")
 [connection signal="pressed" from="js scrol container/js lessons/js15" to="." method="_on_js_15_pressed"]
 [connection signal="pressed" from="js scrol container/js lessons/js16" to="." method="_on_js_16_pressed"]
 [connection signal="pressed" from="js scrol container/js lessons/js17" to="." method="_on_js_17_pressed"]
-[connection signal="pressed" from="HTML" to="." method="_on_html_pressed"]
-[connection signal="pressed" from="CSS" to="." method="_on_css_pressed"]
-[connection signal="pressed" from="JS" to="." method="_on_js_pressed"]
 [connection signal="pressed" from="Back btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Subject/HTML" to="." method="_on_html_pressed"]
+[connection signal="pressed" from="Subject/CSS" to="." method="_on_css_pressed"]
+[connection signal="pressed" from="Subject/JS" to="." method="_on_js_pressed"]
